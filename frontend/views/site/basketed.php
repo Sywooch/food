@@ -1,0 +1,1 @@
+<span class="buy db ma">Куплено</span>

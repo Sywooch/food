@@ -1,0 +1,54 @@
+@font-face {
+  font-family: 'roundsBlack';
+  src: local('☺'), url('../fonts/roundsBlack/roundsBlack.woff') format('woff'), url('../fonts/roundsBlack/roundsBlack.ttf') format('truetype'), url('../fonts/roundsBlack/roundsBlack.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'circleRegular';
+  src: local('☺'), url('../fonts/circle/circleRegular/circleRegular.woff') format('woff'), url('../fonts/circle/circleRegular/circleRegular.ttf') format('truetype'), url('../fonts/circle/circleRegular/circleRegular.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'circeBold';
+  src: local('☺'), url('../fonts/circle/circeBold/circeBold.woff') format('woff'), url('../fonts/circle/circeBold/circeBold.ttf') format('truetype'), url('../fonts/circle/circeBold/circeBold.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'circeLight';
+  src: local('☺'), url('../fonts/circle/circleLight/circleLight.woff') format('woff'), url('../fonts/circle/circleLight/circleLight.ttf') format('truetype'), url('../fonts/circle/circleLight/circleLight.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'robotoMedium';
+  src: local('☺'), url('../fonts/roboto/robotoMedium/robotoMedium.woff') format('woff'), url('../fonts/roboto/robotoMedium/robotoMedium.ttf') format('truetype'), url('../fonts/roboto/robotoMedium/robotoMedium.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'robotoRegular';
+  src: local('☺'), url('../fonts/roboto/robotoRegular/robotoRegular.woff') format('woff'), url('../fonts/roboto/robotoRegular/robotoRegular.ttf') format('truetype'), url('../fonts/roboto/robotoRegular/robotoRegular.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'robotoCondensedRegular';
+  src: local('☺'), url('../fonts/roboto/robotoCondensedRegular/robotoCondensedRegular.woff') format('woff'), url('../fonts/roboto/robotoCondensedRegular/robotoCondensedRegular.ttf') format('truetype'), url('../fonts/roboto/robotoCondensedRegular/robotoCondensedRegular.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'robotoCondensedLight';
+  src: local('☺'), url('../fonts/roboto/robotoCondensedLight/robotoCondensedLight.woff') format('woff'), url('../fonts/roboto/robotoCondensedLight/robotoCondensedLight.ttf') format('truetype'), url('../fonts/roboto/robotoCondensedLight/robotoCondensedLight.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'berlinSansFBRegular';
+  src: local('☺'), url('../fonts/berlin/berlinSansFBRegular/berlinSansFBRegular.woff') format('woff'), url('../fonts/berlin/berlinSansFBRegular/berlinSansFBRegular.ttf') format('truetype'), url('../fonts/berlin/berlinSansFBRegular/berlinSansFBRegular.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

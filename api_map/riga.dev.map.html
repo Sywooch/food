@@ -1,0 +1,914 @@
+
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="/favicon.ico" rel="icon" type="image/x-icon"/>
+        <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Карта – Рублево-успенское шоссе (Рублевка) и Новорижское шоссе</title>
+        <meta name="description" content="Карта недвижимости и инфраструктуры Новорижского и Рублево-успенского шоссе." />
+        <meta name="keywords" content="карта новорижское шоссе рублево-успенское шоссе коттеджные поселки рестораны школы фитнес-центры достопримечательности" />
+		
+        <script src="/themes/house/js/jquery/jquery-1.11.1.min.js" type="text/javascript" ></script> 
+        <script src="/themes/house/js/jquery/jquery-migrate-1.2.1.js" type="text/javascript" ></script> 
+        <link rel="stylesheet" href="/themes/house/js/fancybox/source/jquery.fancybox.css" type="text/css" media="screen" />
+        <script async src="/themes/house/js/fancybox/source/jquery.fancybox.pack2.js" type="text/javascript" ></script>
+        
+        
+        <script src="/themes/default/js/JsHttpRequest/JsHttpRequest.js" type="text/javascript" ></script>
+        <script src="/themes/house/js/jquery-ui-1.9.0.custom.min.js" type="text/javascript" ></script>   
+        <!--script src="/themes/default/js/jquery/jquery-ui.js" type="text/javascript" ></script-->
+        <script async src="/themes/house/js/autocomplete/jquery.autocomplete.js" type="text/javascript" ></script>
+        <script async type="text/javascript" src="/themes/house/js/jquery.datepicker.js"></script>
+        <script async src="/themes/default/js/jplugins/dq-validate/dq-validate.js" type="text/javascript"></script>
+        <script async src="/themes/default/js/jplugins/bubblePopup-1.1/jquery.BubblePopup-1.1.src.js" type="text/javascript"></script>
+        <script async src="/themes/default/js/jplugins/scrollTo/jquery.scrollTo-min.js" type="text/javascript"></script>
+        <link href="/themes/default/css/validator.css" rel="stylesheet" type="text/css" />
+        <link href="/themes/house/js/jplugins/datepick/jquery.datepick.css" rel="stylesheet" media="all" />  
+        <script async src="/themes/default/js/shadowbox/shadowbox.js" type="text/javascript" ></script>
+        <link href="/themes/default/js/shadowbox/shadowbox.css" rel="stylesheet" type="text/css" />
+        <script src="/themes/default/js/scripts.js" type="text/javascript" ></script>
+        <script src="/themes/house/js/scripts.js" type="text/javascript" ></script>
+        <script async src="/themes/house/js/plugin-scrollbar/jquery.tinyscrollbar.js" type="text/javascript" ></script>
+        <script async type="text/javascript" src="/themes/house/js/blockui/jquery.blockUI.js"></script>
+        <script async src="/themes/house/js/plugin-scrollbar/jquery.tinyscrollbar.js" type="text/javascript" ></script>
+
+        
+        <script async type="text/javascript" src="/themes/house/js/placeholder/jquery.placeholder.js"></script>
+        <link href="/themes/house/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="/themes/house/css/custom.css" rel="stylesheet" type="text/css" />
+        <!--[if lte IE 6]>
+    <script type="text/javascript" src="/themes/house/js/iepngfix_tilebg.js"></script>
+    <script type="text/javascript" src="/themes/house/js/ie.js"></script>
+    <![endif]-->
+    <!--[if lte IE 7]><link href="/themes/house/css/ie6-7.css" rel="stylesheet" type="text/css" /><![endif]-->
+    <!--[if lte IE 8]><script type="text/javascript" src="/themes/house/js/PIE.js"></script><![endif]-->
+         <!-- required plugins -->
+		<script async type="text/javascript" src="/themes/house/js/multipledate/date.js"></script>
+		<!--[if IE]><script type="text/javascript" src="/themes/house/js/multipledate/jquery.bgiframe.min.js"></script><![endif]-->
+        <!-- jquery.datePicker.js -->
+		<script async type="text/javascript" src="/themes/house/js/multipledate/jquery.datePicker.js"></script>
+        <!-- datePicker required styles -->
+		<link rel="stylesheet" type="text/css" media="screen" href="/themes/house/js/multipledate/datePicker.css" />	
+         <!--custom functionality plugins -->
+		<script async type="text/javascript" src="/themes/house/js/multipledate/custom.js"></script>
+            <script async type="text/javascript" src="/themes/house/js/ajexfilemanager/ajex.js"></script>
+    </head>
+    <body>
+        <div id="mask"  style="width: 1903px; height: 1783px; display: none; opacity: 0.8;top:0px;left:0px"></div>
+        <div id="mask1"  style="width: 1903px; height: 1783px; display: none; opacity: 0.8;top:0px;left:0px"></div>
+        <div class="min-h">
+            <div id="wrapper">
+                <div id="container">
+                    
+                    <div class="header">
+                        <div class="logo"><a href="/">
+                                <span class="text">
+                                портал
+                                <br>
+                                <strong>для жителей</strong>
+                                </span>
+                            </a></div>
+                               <div class="auth-block">
+					<p style="text-align:right"><a class="black" style="font-size:16px" href="#dialog" name="modal">Добавить объявление</a></p>
+					<p style="text-align:right"><a class="black" style="font-size:16px" href="#dialog" name="modal">Написать новость</a></p>
+                        </div>
+
+					<div id="dialog" class="window block block-ind7" >
+                        <div class="dq-validate-errors"></div>
+						<div class="block-ind7-head-line"></div>
+							<div class="block-ind7-content">
+							<a class="close-login" href=""></a>
+							<div class="h2">Авторизация</div>
+							<p>Вы можете войти как пользователь других сайтов</p>
+                                                         <ul class="social">
+                                
+                                    <li class="social-buttons">
+                                        <a href="/social/social/login/facebook/"><i class="facebook"></i> Facebook</a>
+                                    </li>
+                                
+                                    <li class="social-buttons">
+                                        <a href="/social/social/login/twitter/"><i class="twitter"></i> Twitter</a>
+                                    </li>
+                                
+                                    <li class="social-buttons">
+                                        <a href="/social/social/login/vkontakte/"><i class="vkontakte"></i> Vkontakte</a>
+                                    </li>
+                                
+							</ul>
+                            
+
+							<form id="regular1" method="post" action="" enctype="multipart/form-data">
+								<p>Или как пользователь сайта <strong>Novaya-riga.ru:</strong></p>
+								<input type=hidden name=login[blog] value="">
+								<input type=hidden name=login[itemAlias] value="">
+								<input type=hidden name=login[infra] value="">
+								<input class="nameClick" type=hidden name=login[nameClick] value="">
+								<dl class="px-margin">
+									<dd>
+                                        <span><!-- error nest --></span>
+                                        <input type="text" tabindex="1" placeholder="Логин" class="slon_v2" data-error-anchor="login" data-helper-text="Логин" name="login[login]"></dd><dd><span><!-- error nest --></span><input type="password" tabindex="2" class="slon_v2" data-error-anchor="password" placeholder="Пароль" data-helper-text="Пароль" name="login[password]"></dd><dd class="last"><input type="submit" tabindex="4" class="button" value="Войти" data-allow-ajax="true" onclick="sendLoginForm1();return false;"></dd>
+								</dl>
+								<dl>
+									<dd>
+										<!--span class="dimension-helper">
+											<label>
+												<input type="hidden" value="" name="remember">
+													<input type="checkbox" /> Запомнить меня</label></span--></dd>
+                                                    <dd><span class="dimension-helper"><a class="red-red" href="/remind/">Я забыл пароль</a></span></dd>
+								</dl>
+							</form>
+
+							<div class="hr"></div>
+							<p>
+								Если у вас нигде нет аккаунта, то, пожалуйста, <strong><a class="red-red" href="/register/">зарегистрируйтeсь</a></strong>
+							</p>
+							<!-- block-ind7-content -->
+						</div>
+						<!-- END block-ind7 -->
+					</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    jQuery('input[placeholder], textarea[placeholder]').placeholder();
+
+    $('.social-buttons a').click(function(e){
+        e.preventDefault();
+        var href = $(this).attr('href');
+
+        var offsetLeft = ($(window).width() - 650) / 2;
+        var offsetTop = ($(window).height() - 350) / 2;
+
+        var wh = window.open(href, 'socialLoginWindow', 'width=750, height=550, left='+offsetLeft+', top='+offsetTop);
+    });
+});
+</script>
+
+                        <!-- end .auth-block-->
+                        <ul class="menu1">
+				
+			<li><span><a class="bord" href="/villages/"  >Недвижимость</a></span></li>
+		
+				
+			<li><span><a class="bord" href="/infrastructure/viewlist/"  >Инфраструктура</a></span></li>
+		
+				
+			<li><span><a class="bord current" href="/map/"  >Карта</a></span></li>
+		
+		</ul>  
+		<!-- end .menu1-->
+
+                   
+                        <ul class="menu2">
+				
+			<li><a class="bord" href="/blogs/posts/"  >Блоги </a></li>
+		
+				
+			<li><a class="bord" href="/news/announce/"  >Афиша событий</a></li>
+		
+				
+			<li><a class="bord" href="/news/articles/"  >Статьи</a></li>
+		
+				
+			<li><a class="bord" href="/peoples/"  >Люди</a></li>
+		
+		</ul>  
+		<!-- end .menu2-->
+     
+                    </div>
+                    <!-- end .header-->
+                                                <div class="content content-full">
+                                    
+                                        
+                            
+                     
+                                
+<!--div style="position:absolute; top:143px;">	
+ <div class="search_right">
+  <form enctype="multipart/form-data"  method="post" action="/search/check/" id="form1" name="apmsearch">
+  <input class="ob_swap_url swap_grayed" value="Поиск по сайту" type="text" def="Поиск по сайту" name="search_word" id="SearchField"><button class="btn_send" type="submit" name="submit" onclick="return search_map1();">Найти</button>
+  <div id="no_visible" style="display: none;">
+    <img id="pp" alt="X" src="/themes/house//images/close.gif">
+    <div class="chk">
+              <label>
+          <input type="radio"  value="news:places:agencies:infrastructure:property" name="modules"  checked >
+          По всему сайту
+        </label>
+        <br>
+              <label>
+          <input type="radio" value="places" name="modules" >
+          По каталогу
+        </label>
+        <br>
+           <label>
+              
+                <input type="radio" value="map" name="modules"  checked >
+              
+             По карте                 
+        </label>
+        <br>                    
+          </div>
+    <div id="border_bg">&nbsp;</div>
+  </div>
+  </form>          
+</div>
+
+<script language="javascript" type="text/javascript">SearchAttachEvent();</script>
+
+<script>
+    
+    function search_map1(){
+      
+        a = $.trim($('#SearchField').val()); 
+        a = a.replace(/[^a-zA-Zа-яА-Я0-9\-_ ]/gi,'');
+       
+        if (a=="Поиск по сайту") {
+            a='';
+        }
+        
+            if ($('input:radio[name=modules]:checked').val()=='infra'){
+                location.href='/infrastructure/?search_word='+ a;
+                    return false;
+            }
+            if ($('input:radio[name=modules]:checked').val()=='map'){
+                location.href='/map/?search_word='+ a;
+                    return false;
+            }
+        return true;
+    }
+    
+</script> </div-->
+<h1 style="margin-left:240px;">Карта Подмосковья - Новорижское и Рублевское направление <!--span class="grey">все объекты <span class="sup" id="total_items"></span></span--></h1>
+	
+<div class="block map-holder">
+    <div class="map-holder2" style="position: relative;">
+         <img class="loader_icon" style="top:10px;" src="/themes/house/images/ajax-loader.gif"/>
+         <div class="map-hold-big map" id="map_canvas" style="height:622px"></div>
+         <div class="places-filter">
+ 
+ <div class="search_right">
+  <form enctype="multipart/form-data"  method="post" action="/search/check/" id="form1" name="apmsearch">
+  <input class="ob_swap_url swap_grayed" value="Поиск по сайту" type="text" def="Поиск по сайту" name="search_word" id="SearchField"><button class="btn_send" type="submit" name="submit" onclick="return search_map1();">Найти</button>
+  <div id="no_visible" style="display: none;">
+    <img id="pp" alt="X" src="/themes/house//images/close.gif">
+    <div class="chk">
+              <label>
+          <input type="radio"  value="news:places:agencies:infrastructure:property" name="modules"  checked >
+          По всему сайту
+        </label>
+        <br>
+              <label>
+          <input type="radio" value="places" name="modules" >
+          По каталогу
+        </label>
+        <br>
+           <label>
+              
+                <input type="radio" value="map" name="modules"  checked >
+              
+             По карте                 
+        </label>
+        <br>                    
+          </div>
+    <div id="border_bg">&nbsp;</div>
+  </div>
+  </form>          
+</div>
+
+<script language="javascript" type="text/javascript">SearchAttachEvent();</script>
+
+<script>
+    
+    function search_map1(){
+      
+        a = $.trim($('#SearchField').val()); 
+        a = a.replace(/[^a-zA-Zа-яА-Я0-9\-_ ]/gi,'');
+       
+        if (a=="Поиск по сайту") {
+            a='';
+        }
+        
+            if ($('input:radio[name=modules]:checked').val()=='infra'){
+                location.href='/infrastructure/?search_word='+ a;
+                    return false;
+            }
+            if ($('input:radio[name=modules]:checked').val()=='map'){
+                location.href='/map/?search_word='+ a;
+                    return false;
+            }
+        return true;
+    }
+    
+</script> 
+			<form action="" method="get">
+				<fieldset>	
+                                    <ul class="menu3">
+                                        
+                                        <li id="li_parent_1" style="display:none">
+<!--                                            скрыто до реализации-->
+                                            <label>
+                                                <span onclick="toggle_inf_submenu(1);"><strong>Люди</strong></span>
+                                            </label>
+                                        </li>
+                                        
+                                        <li id="li_parent_2" class="active">
+                                            <label>
+                                                <span onclick="toggle_inf_submenu(2);"><strong>Недвижимость</strong></span>
+                                            </label>
+                                            <ul class="menu3" id="villages_menu">
+                                                                                                        <li class="villages active">
+                                                            <label><input type="checkbox" value="3" id="3" name="villages[3]" checked/>
+                                                            <span><strong>Коттеджные поселки</strong> <em>565</em></span></label>
+                                                    </li>
+                                                                                                        <li class="villages">
+                                                            <label><input type="checkbox" value="2" id="2" name="villages[2]" />
+                                                            <span><strong>Населенные пункты</strong> <em>33</em></span></label>
+                                                    </li>
+                                                                                                        
+                                                                                                        <li class="villages">
+                                                            <label><input type="checkbox" value="2" id="2" name="property[2]" />
+                                                            <span><strong>Коттеджи</strong> <em>6</em></span></label>
+                                                    </li>
+                                                                                                        <li class="villages">
+                                                            <label><input type="checkbox" value="1" id="1" name="property[1]" />
+                                                            <span><strong>Таунхаусы</strong> <em>1</em></span></label>
+                                                    </li>
+                                                                                                        <li class="villages">
+                                                            <label><input type="checkbox" value="3" id="3" name="property[3]" />
+                                                            <span><strong>Участки</strong> <em>5</em></span></label>
+                                                    </li>
+                                                                                                        
+                                            </ul>
+                                        </li>
+                                        <li id="li_parent_3" class="active"> 
+                                            <label>
+                                                <span onclick="toggle_inf_submenu(3);"><strong>Инфраструктура</strong></span>
+                                            </label>
+                                            <ul class="menu3" id="infra_menu">
+                                                                                                        <li  >
+                                                            <label><input type="checkbox" value="1" name="cat_id[1]" />
+                                                            <span><strong>Рестораны</strong> <em>48</em></span></label>
+                                                    </li>
+                                                                                                        <li  >
+                                                            <label><input type="checkbox" value="2" name="cat_id[2]" />
+                                                            <span><strong>Спорт</strong> <em>43</em></span></label>
+                                                    </li>
+                                                                                                        <li  >
+                                                            <label><input type="checkbox" value="6" name="cat_id[6]" />
+                                                            <span><strong>Образование</strong> <em>80</em></span></label>
+                                                    </li>
+                                                                                                        <li  >
+                                                            <label><input type="checkbox" value="15" name="cat_id[15]" />
+                                                            <span><strong>Достопримечательности</strong> <em>27</em></span></label>
+                                                    </li>
+                                                                                                        <li  >
+                                                            <label><input type="checkbox" value="20" name="cat_id[20]" />
+                                                            <span><strong>Развлечения</strong> <em>9</em></span></label>
+                                                    </li>
+                                                                                                        <li  >
+                                                            <label><input type="checkbox" value="3" name="cat_id[3]" />
+                                                            <span><strong>Mедицина</strong> <em>27</em></span></label>
+                                                    </li>
+                                                                                                        <li  >
+                                                            <label><input type="checkbox" value="10" name="cat_id[10]" />
+                                                            <span><strong>Магазины</strong> <em>25</em></span></label>
+                                                    </li>
+                                                                                                        <li  >
+                                                            <label><input type="checkbox" value="28" name="cat_id[28]" />
+                                                            <span><strong>Отдых, туризм</strong> <em>41</em></span></label>
+                                                    </li>
+                                                                                                        <li  >
+                                                            <label><input type="checkbox" value="29" name="cat_id[29]" />
+                                                            <span><strong>Авто</strong> <em>4</em></span></label>
+                                                    </li>
+                                                                                                        <li  >
+                                                            <label><input type="checkbox" value="30" name="cat_id[30]" />
+                                                            <span><strong>Услуги</strong> <em>25</em></span></label>
+                                                    </li>
+                                                                                                        <li  >
+                                                            <label><input type="checkbox" value="24" name="cat_id[24]" />
+                                                            <span><strong>Гос. учреждения</strong> <em>17</em></span></label>
+                                                    </li>
+                                                                                                        <li  >
+                                                            <label><input type="checkbox" value="33" name="cat_id[33]" />
+                                                            <span><strong>Бизнес</strong> <em>4</em></span></label>
+                                                    </li>
+                                                                                                </ul>
+                                        </li>
+                                        <li id="li_parent_4" class="active"> 
+                                            <ul class="menu3" id="people_menu">
+                                                <li  >
+                                                    <label><input type="checkbox" value="1" name="people[1]"  />
+                                                    <span><strong>Жители</strong> <em>11</em></span></label>  
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+					<!-- end .menu3-->
+					<ul class="menu3b">
+						<li><a href="javascript:all_infr_select();">Выбрать все</a></li>
+						<li><a href="javascript:all_infr_deselect();">Отменить все</a></li>
+					</ul>
+					<!-- end .menu3b-->
+					<input class="btn" value="Показать" type="submit" />
+				</fieldset>
+			</form>
+</div>
+<!-- end .places-filter--> 
+        <div class="filter3" style="display:none">
+							<form action="/map/" method="get">
+								<fieldset>
+									<ul>
+										<!--li class="price">
+											<span class="h6">Цена:</span>
+											<select  name="price_from" id="price_from" >
+                                            <option value="0">от</option>
+                                            
+                                                                                        <option value="1000" >1 000</option>
+                                                                                        <option value="5000" >5 000</option>
+                                                                                        <option value="10000" >10 000</option>
+                                                                                        <option value="15000" >15 000</option>
+                                                                                        <option value="20000" >20 000</option>
+                                                                                        <option value="25000" >25 000</option>
+                                                                                        <option value="30000" >30 000</option>
+                                                                                        <option value="40000" >40 000</option>
+                                                                                        <option value="50000" >50 000</option>
+                                                                                        <option value="1000000" >1 000 000</option>
+                                                                                        <option value="2000000" >2 000 000</option>
+                                                                                        <option value="3000000" >3 000 000</option>
+                                                                                        <option value="5000000" >5 000 000</option>
+                                                                                        <option value="8000000" >8 000 000</option>
+                                                                                        <option value="10000000" >10 000 000</option>
+                                                                                        <option value="15000000" >15 000 000</option>
+                                                                                        <option value="20000000" >20 000 000</option>
+                                                                                        <option value="100000000" >100 000 000</option>
+                                                                                        <option value="150000000" >150 000 000</option>
+                                            				
+                                        </select>
+										 <select class="right" name="price_to" id="price_to" >
+                                            <option value="0">до</option>
+                                            
+                                                                                        <option value="1000" >1 000</option>
+                                                                                        <option value="5000" >5 000</option>
+                                                                                        <option value="10000" >10 000</option>
+                                                                                        <option value="15000" >15 000</option>
+                                                                                        <option value="20000" >20 000</option>
+                                                                                        <option value="25000" >25 000</option>
+                                                                                        <option value="30000" >30 000</option>
+                                                                                        <option value="40000" >40 000</option>
+                                                                                        <option value="50000" >50 000</option>
+                                                                                        <option value="1000000" >1 000 000</option>
+                                                                                        <option value="2000000" >2 000 000</option>
+                                                                                        <option value="3000000" >3 000 000</option>
+                                                                                        <option value="5000000" >5 000 000</option>
+                                                                                        <option value="8000000" >8 000 000</option>
+                                                                                        <option value="10000000" >10 000 000</option>
+                                                                                        <option value="15000000" >15 000 000</option>
+                                                                                        <option value="20000000" >20 000 000</option>
+                                                                                        <option value="100000000" >100 000 000</option>
+                                                                                        <option value="150000000" >150 000 000</option>
+                                            				
+                                        </select>
+										</li-->
+										<li>
+											<span class="h6">Готовность:</span>
+                                             <select name="stage_id" id="stage_id" style="width:150px;" class="black">
+                                                <option value="0"></option>    
+                                                                                                <option value="1" >Строительство</option>
+                                                                                                <option value="2" >Завершение строительства</option>
+                                                                                                <option value="3" >Построен</option>
+                                                                                                <option value="4" >Построен. Продажи на вторичном рынке.</option>
+                                                                                            </select>
+										</li>
+										<li>
+											<div class="input">
+												
+                                                <input class="ob_swap_url swap_grayed" value="Введите название" type="text" def="Введите название" name="search_word" id="search_word" />
+											</div>
+										</li>
+									</ul>
+									<input class="btn" value="Показать" type="submit" onclick="if ($('#search_word').val()=='Введите название'){$('#search_word').val('')}"/>
+								</fieldset>
+							</form>
+							<span class="close2"></span>
+        </div>
+                                           
+    </div>  
+    	        <div class="map_legend">
+         <strong><img src="/themes/house//images/marker-yellow.png"> - до 10 млн. руб. 
+				<img src="/themes/house//images/marker-green.png"> - 10-20 млн. руб. 
+				<img src="/themes/house//images/marker-blue.png"> - 20-50 млн. руб. 
+				<img src="/themes/house//images/marker-red.png"> - свыше 50 млн. руб. 
+				<img src="/themes/house//images/marker-gray.png"> - не указана.
+				</strong>
+   </div>   					
+</div>
+<!-- end .map-holder2-->
+               <div class="centerAd" >
+            <div><!-- AdRiver code START: код для баннера; AD: 404309 "villagio баннеры";   сценарий   "Дефолтные баннеры"  баннер ID 2681665 "парк авеню рига"; extension -->
+<script type="text/javascript">
+(function(L){if(typeof(ar_cn)=="undefined")ar_cn=1;
+var S='setTimeout(function(e){if(!self.CgiHref){document.close();e=parent.document.getElementById("ar_container_"+ar_bnum);e.parentNode.removeChild(e);}},3000);',
+    j=' type="text/javascript"',t=0,D=document,n=ar_cn;L='http:'+L+escape(D.referrer||'unknown')+'&rnd='+Math.round(Math.random()*999999999);
+function _(){if(t++<100){var F=D.getElementById('ar_container_'+n);
+    if(F){try{var d=F.contentDocument||(window.ActiveXObject&&window.frames['ar_container_'+n].document);
+    if(d){d.write('<sc'+'ript'+j+'>var ar_bnum='+n+';'+S+'<\/sc'+'ript><sc'+'ript'+j+' src="'+L+'"><\/sc'+'ript>');t=0}
+    else setTimeout(_,100);}catch(e){try{F.src="javascript:{document.write('<sc'+'ript"+j+">var ar_bnum="+n+"; document.domain=\""
+    +D.domain+"\";"+S+"<\/sc'+'ript>');document.write('<sc'+'ript"+j+" src=\""+L+"\"><\/sc'+'ript>');}";return}catch(E){}}}else setTimeout(_,100);}}
+D.write('<div style="visibility:hidden;height:0px;left:-1000px;position:absolute;"><iframe id="ar_container_'+ar_cn
+    +'" width=1 height=1 marginwidth=0 marginheight=0 scrolling=no frameborder=0><\/iframe><\/div><div id="ad_ph_'+ar_cn
+    +'" style="display:none;"><\/div>');_();ar_cn++;
+})('//ad.adriver.ru/cgi-bin/erle.cgi?sid=1&ad=404309&bt=43&bid=2681665&bn=2681665&tail256=');
+</script>
+<!-- AdRiver code END --></div>
+    </div>    
+     
+                    
+                     
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=drawing&language=ru"> </script>
+<!-- script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&language=ru"></script-->
+<script type="text/javascript" src="/js/markerclusterer.js"></script>
+<script type="text/javascript" src="/js/gmap.js"></script>
+<script type="text/javascript" src="/js/infobox.js"></script>
+
+<script type="text/javascript" >
+    var map_latitude = 55.795255893451326;
+    var map_longitude = 36.484408203124985;
+    var zoom = 11;
+    var autofit = true;
+    var price_from ='0';
+    var price_to ='0';
+    var stage_id ='0';
+    var search_word ='';
+    var cats = '';
+    var villages = '3';
+    var property = '';
+    var people = '';
+    var poli = '0';
+     
+
+	$('.loader_icon').show();
+	
+$(document).ready(function(){	
+
+	map =  new gMap();
+	map.Init(map_latitude, map_longitude, zoom);
+        map.setFitBounds(autofit);
+	getItems4Map();
+
+// если слижком большои автозум при кластеризации
+/*
+ map.setFitBounds(false);
+        if (map.getZoom()<=9){ 
+            
+            map.setZoom(13); 
+         }
+*/
+})
+
+function getItems4Map()
+{
+	$('.loader_icon').show();
+        
+        $('#infra_menu li input:checked').each(function(){
+            var id = $(this).val();
+            cats[id] = id;
+        });
+        $('#villages_menu li.villages input:checked').each(function(){
+            var id = $(this).val();
+            villages[id] = id;
+        });
+        $('#villages_menu li.property input:checked').each(function(){
+            var id = $(this).val();
+            property[id] = id;
+        });
+        
+        $('#people_menu li input:checked').each(function(){
+            var id = $(this).val();
+            people[id] = id;
+        });
+        
+	JsHttpRequest.query('/map/getItems4Map/',
+		{'get': 'run' ,  'price_from':price_from, 'price_to':price_to, 'stage_id':stage_id, 'search_word':search_word,'cat_id':cats,'villages':villages,'property':property, 'people':people, 'poli':poli},
+		function(result, errors){
+			if(result && result.res == 1){				
+                map.showMarkers(result.map);
+                
+                $('#total_items').html(result.total);
+                $('.loader_icon').hide();
+			} else {
+				console.log(errors);
+				return false;
+			}
+		}, true
+	);	
+	
+}
+function toggle_inf_submenu(id){
+    $("#li_parent_"+id).toggleClass("active");
+}
+function all_infr_select(){
+    $("#infra_menu").find('input[type=checkbox]').each(function(index) {
+            $(this).attr('checked', true);
+   });
+    $("#villages_menu").find('input[type=checkbox]').each(function(index) {
+            $(this).attr('checked', true);
+   });
+}
+
+function all_infr_deselect(){
+     $("#infra_menu").find('input[type=checkbox]').each(function(index) {
+            $(this).attr('checked', false);
+     });
+     $("#villages_menu").find('input[type=checkbox]').each(function(index) {
+            $(this).attr('checked', false);
+     });
+}     
+      </script>
+              
+
+ <div id="senderrors" class="window block block-ind7" >
+
+    <div class="block-ind7-head-line"></div>
+        <div class="block-ind7-content">	
+                                    
+        <a class="close-login" href=""></a>
+
+        <h2>Нашли ошибку?</h2>
+                                  
+        <form id="report_errors" method="POST" action="" method="post" enctype="multipart/form-data" onsubmit="return false;" >
+            <div class="dq-validate-errors"></div>
+		 <div class="send_moder_form">
+                    <table cellspacing="0" cellpadding="3" >
+                        <tr>
+                            <td><strong>Фамилия Имя:</strong></td>
+                            <td><input type="text" style="width:300px" class="large-input" name="feedback[client_name]" /></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ваш e-mail:</strong></td>
+                            <td><input type="text" style="width:300px" class="large-input" name="feedback[client_email]" /></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Телефон:</strong></td>
+                            <td>
+                                <input type="text" value="" class="micro-input"  style="width:50px" name="feedback[client_phone_code1]" /> 
+                                <input type="text" value="" class="micro-input" style="width:50px" name="feedback[client_phone_code2]" /> 
+                                <input type="text" align="right" value="" class="large-input text-right" name="feedback[client_phone]" />
+                            </td>
+                        </tr>
+                        <tr><td colspan="2" class="map-title" ><strong>Сообщение:</strong></td></tr>                
+                        <tr><td colspan="2" ><textarea cols="" rows="3" style="width:100%" class="desc-textarea" name="feedback[client_text]" ></textarea></td></tr>
+                        <tr>
+                        <td>
+                            <input type="button" class="submit" onclick="sendFoundErrors();" value="Отправить" >
+                        </td>
+                        </tr>
+                    </table>
+                    <input type="hidden" name="feedback[error_page]" value="/map/" />
+               </div>         
+	</form>
+    </div>
+    <!-- END block-ind7 -->
+</div>                
+<div class="search search2">
+    </div>
+    <div class="block">
+    <div class="quarters quarters_autoheight" id="quarters-2">
+        
+    </div>
+    <!-- end .quarters--> 
+</div>
+<!-- end .block-->
+
+<div class="footer-place"></div>
+</div>
+<!-- end #container--> 
+</div>
+<!-- end #wrapper--> 
+</div>
+<!-- end .min-h-->
+
+<div class="footer">
+    <div class="clearfix">
+              
+<ul class="b-menu">
+  
+              <li>  Направления:</li>
+    	                      <li><a href="/villages/rublevo-uspenskoe-shosse/"  >Рублево-успенское</a></li>
+            	              
+        <li><a class="current" href="/villages/novorizhskoe-shosse/"  >Новорижское </a></li>
+            	                      <li><a href="/villages/pyatnickoe-shosse/"  >Пятницкое</a></li>
+            	                      <li><a href="/villages/ilinskoe-shosse/"  >Ильинское</a></li>
+            	                      <li><a href="/villages/volokolamskoe-shosse/"  >Волоколамское</a></li>
+            	          <li> &nbsp;</li>
+    	              <li>  Районы:</li>
+    	                      <li><a href="/villages/odincovskij-rajon/"  >Одинцовский</a></li>
+            	              
+        <li><a class="current" href="/villages/krasnogorskij-rajon/"  >Красногорский</a></li>
+            	                      <li><a href="/villages/istrinskij-rajon/"  >Истринский</a></li>
+            	                      <li><a href="/villages/volokolamskij-rajon/"  >Волоколамский</a></li>
+            	</ul>
+
+
+        
+<ul class="b-menu">
+  
+                      <li><a href="/villages/"  >Коттеджные поселки</a></li>
+            	                      <li><a href="/sites/"  >Участки</a></li>
+            	                      <li><a href="/cottages/"  >Коттеджи</a></li>
+            	                      <li><a href="/townhouses/"  >Таунхаусы</a></li>
+            	<li>&nbsp;</li>
+<li style="position:relative">
+   <div class="social_buttons" style="float: none; left: 0px; top: 39px;">
+            <p>Novaya-Riga.ru в соцсетях</p>
+            <div class="social_line">
+                    <div><a href="http://www.facebook.com/NovayaRigaRu" title="Novaya-Riga.ru в Facebook" class="link_facebook" rel="nofollow">Facebook</a></div>
+                    <div><a href="https://twitter.com/NovayaRigaRu" title="Novaya-Riga.ru в Twitter" class="link_twitter" rel="nofollow">Twitter</a></div>
+    </div>
+        </div>
+</li>
+</ul>
+
+
+        
+<ul class="b-menu">
+  
+                      <li><a href="/infrastructure/viewlist/"  >Инфраструктура</a></li>
+            	                      <li><a href="/news/announce/"  >Афиша событий</a></li>
+            	                      <li><a href="/map/"  >Карта</a></li>
+            	                      <li><a href="/agencies/"  >Агентства недвижимости</a></li>
+            	                      <li><a href="/property/archive/"  >Архив объявлений</a></li>
+            	</ul>
+
+
+        
+<ul class="b-menu">
+  
+                      <li><a href="/news/residents/"  >Новости для жителей</a></li>
+            	                      <li><a href="/news/realty/"  >Новости недвижимости</a></li>
+            	                      <li><a href="/news/articles/"  >Статьи</a></li>
+            	                      <li><a href="/news/photoreports/"  >Фоторепортажи</a></li>
+            	                      <li><a href="/news/interview/"  >Интервью и события</a></li>
+            	</ul>
+
+
+        
+<ul class="b-menu">
+  
+                      <li><a href="/o-proekte/"  >О проекте </a></li>
+            	                      <li><a href="/polizovateliskoe-soglashenie/"  >Пользовательское соглашение</a></li>
+            	                      <li><a href="/kontakti/"  >Контактная информация</a></li>
+            	                      <li><a href="/reklama/"  >Реклама </a></li>
+            	</ul>
+
+
+        
+
+        
+         <!--script src="/themes/default/js/scripts.js" type="text/javascript" ></script>
+        <script src="/themes/house/js/scripts.js" type="text/javascript" ></script-->
+                <div class="links">
+            <ul>
+                <li><a class="one" href="http://domnamore.ru" target="_blank" rel="nofollow"></a></li>
+                <li><a class="two" href="http://domzamkad.ru" target="_blank" rel="nofollow"></a></li>
+                <li><a class="three" href="http://novaya-riga.ru" target="_blank" rel="nofollow"></a></li>
+                <li><a class="four" href="http://townhouse.ru" target="_blank" rel="nofollow"></a></li>
+                <li><a class="five" href="http://kvartiravmoskve.ru" target="_blank" rel="nofollow"></a></li>
+                
+                <li><a class="seven" href="http://domotdiha.ru" target="_blank" rel="nofollow"></a></li>
+                <li><a class="eight" href="http://kvartirazamkad.ru" target="_blank" rel="nofollow"></a></li>
+                <li><a class="nine" href="http://officevmoskve.ru" target="_blank" rel="nofollow"></a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <!--<div></div>-->
+    <div>Новая Рига © 2015. При полном или частичном использовании материалов активная ссылка на Novaya-Riga.Ru обязательна. Свидетельство о регистрации СМИ N ФС77-30113</div>
+	<div class="metrics" style="display:none">
+		<div><!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter17896408 = new Ya.Metrika({id:17896408,
+                    webvisor:true,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") +
+"//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/17896408"
+style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+</div>
+		<div><!--LiveInternet counter--><script type="text/javascript"><!--
+
+document.write('<img src="http://counter.yadro.ru/hit?r'+
+
+escape(document.referrer)+((typeof(screen)=='undefined')?'':
+
+';s'+screen.width+'*'+screen.height+'*'+(screen.colorDepth?
+
+screen.colorDepth:screen.pixelDepth))+';u'+escape(document.URL)+
+
+';'+Math.random()+
+
+'" width=1 height=1 alt="">')//--></script><!--/LiveInternet-->
+
+<!--LiveInternet logo--><a href="http://www.liveinternet.ru/click" target=_blank rel="nofollow" ><img
+
+src="http://counter.yadro.ru/logo?14.1" border=0
+
+title="LiveInternet: показано число просмотров за 24 часа, посетителей за 24 часа и за сегодня" alt=""
+
+width=88 height=31></a><!--/LiveInternet-->
+
+</div>
+		<div><!-- begin of Top100 code -->
+
+<img src="http://counter.rambler.ru/top100.cnt?773379" alt="" width="1" height="1" border="0" />
+
+<!-- end of Top100 code -->
+<!-- begin of Top100 logo -->
+
+<a href="http://top100.rambler.ru/navi/773379/">
+<img src="http://top100-images.rambler.ru/top100/banner-88x31-rambler-gray2.gif" alt="Rambler's Top100"
+width="88" height="31" border="0" /></a>
+
+<!-- end of Top100 logo --></div>
+		<div><script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-6737401-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></div>
+		<div><!--Rating@Mail.ru COUNTEr--><script language="JavaScript" type="text/javascript"><!--
+
+d=document;var a='';a+=';r='+escape(d.referrer)
+
+js=10//--></script><script language="JavaScript1.1" type="text/javascript"><!--
+
+a+=';j='+navigator.javaEnabled()
+
+js=11//--></script><script language="JavaScript1.2" type="text/javascript"><!--
+
+s=screen;a+=';s='+s.width+'*'+s.height
+
+a+=';d='+(s.colorDepth?s.colorDepth:s.pixelDepth)
+
+js=12//--></script><script language="JavaScript1.3" type="text/javascript"><!--
+
+js=13//--></script><script language="JavaScript" type="text/javascript"><!--
+
+d.write('<a href="http://top.mail.ru/jump?from=975285"'+
+
+' target=_top rel=nofollow ><img src="http://d1.ce.be.a0.top.list.ru/counter'+
+
+'?id=975285;t=55;js='+js+a+';rand='+Math.random()+
+
+'" alt="Рейтинг@Mail.ru"'+' border=0 height=31 width=88/><\/a>')
+
+if(11<js)d.write('<'+'!-- ')//--></script><noscript><a
+
+target=_top href="http://top.mail.ru/jump?from=975285"><img
+
+src="http://d1.ce.be.a0.top.list.ru/counter?js=na;id=975285;t=55"
+
+border=0 height=31 width=88
+
+alt="Рейтинг@Mail.ru"/></a></noscript><script language="JavaScript" type="text/javascript"><!--
+
+if(11<js)d.write('--'+'>')//--></script><!--/COUNTER-->
+</div>
+		<div><img src="http://ads.adfox.ru/206329/tracePoint?p7=lths&p8=d" width="0" height="0" border="0" alt=""></div>
+	</div>
+</div>
+<!-- end .footer-->
+
+</body>    
+</html>

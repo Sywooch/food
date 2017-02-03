@@ -1,0 +1,1852 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru">
+<head>
+	<title>Novaya-Riga.Ru</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="text/javascript" src="/themes/admin/js/jquery/jquery.js"></script>
+	<script type="text/javascript" src="/themes/admin/js/jquery/jquery-ui.js"></script>
+	<script type="text/javascript" src="/themes/admin/js/jquery.plugins.js"></script>
+    <script type="text/javascript" src="/themes/admin/js/jquery.datepicker.js"></script>
+	<script type="text/javascript" src="/themes/admin/js/jscolor/jscolor.js"></script>
+	<link href="/themes/admin/js/jplugins/datepick/jquery.datepick.css" rel="stylesheet" media="all" />
+	<link href="/themes/admin/js/jplugins/ui-themes/redmond/redmond.css" rel="stylesheet" media="all" />
+
+	<script type="text/javascript" src="/themes/admin/js/jplugins/dq-message/dq-message.js" ></script>
+	<script type="text/javascript" src="/themes/admin/js/jplugins/jGrowl-1.2.5/jquery.jgrowl.js" ></script>
+	<link type="text/css" rel="stylesheet" href="/themes/admin/js/jplugins/jGrowl-1.2.5/jquery.jgrowl.css" />
+	<script type="text/javascript" src="/themes/admin/js/shadowbox/shadowbox.js" ></script>
+	<link type="text/css" rel="stylesheet" href="/themes/admin/js/shadowbox/shadowbox.css" />
+
+	<script type="text/javascript" src="/themes/admin/js/scripts.js"></script>
+	<script type="text/javascript" src="/themes/admin/js/JsHttpRequest/JsHttpRequest.js"></script>
+    <script type="text/javascript" src="/themes/admin/js/ajexfilemanager/ajex.js"></script>
+	<script type="text/javascript">
+	var admin_path = '/admin123';
+	var theme_path = '/themes/admin/';
+    
+	    $(document).ready( function() {
+			AjexFileManager.init({
+				returnTo: 'function'
+			});
+
+	    	// align element in the middle of the screen
+	    	$.fn.alignCenter = function() {
+	    		var popupX = Math.round( ($(window).width() - $(this).width()) / 2 - 100) ;        
+	            var popupY = $(document).scrollTop() + Math.round($(window).height()/2) - Math.round($(this).height()/2) - 200;        
+	            return $(this).css({top: popupY+"px", left: popupX+"px"});
+	    		//get margin left
+	            
+	    	};
+	    		
+    		$.fn.togglePopup = function(){
+    			//detect whether popup is visible or not
+    			if($( '#popup' ).hasClass('hidden')){
+    				//hidden - then display
+    				//when IE - fade immediately
+    				if($.browser.msie){
+    					$( '#opaco' ).height($(document).height()).toggleClass('hidden');
+    				}
+    				else
+    				//in all the rest browsers - fade slowly
+    				{
+    					$( '#opaco' ).height($(document).height()).toggleClass('hidden').fadeTo('slow', 0.7);
+    				}
+
+    				$( '#popup' )
+    					.html($(this).html())
+    					.alignCenter()
+    					.toggleClass('hidden');
+    			}
+    			else {
+    				//visible - then hide
+    				$( '#popup' ).toggleClass('hidden');
+    			}
+    		};
+
+    	});
+    
+</script>
+ 
+   <link rel="stylesheet" type="text/css" href="/themes/admin/css/treeview.css" />
+   <link href="/themes/admin/css/admin_style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+<div class="global menu_closed">
+    <div class="header">
+        <div class="login_block" ><div class="login_content" >
+    		<table cellpadding="0" cellspacing="0" border="0"  >
+    		<tr>
+    		    <td class="avatar" style="width:32px;" ><img src="/themes/admin/images/avatar_default.png" alt="" /></td>
+    		    <td valign="top" >
+    		    	<div class="login" >Admins :: admin</div>
+    		    	<div style="margin-top: 5px;">Последний вход: 22.07.2016 10:33</div>
+    		    </td>
+                                <td valign="top" style="text-align:center;" align="center" >
+                    <div class="login" >Дебажка</div>
+                    <div style="margin-top: 5px;"><a href="/admin123/main/debug/">
+                        Выкл</a>
+                    </div>
+                </td>
+                <td style="text-align:center;" align="center" >
+                    <a href="/admin123/main/refresh/"><img src="/themes/admin/images/refresh_32.png" style="float:right;" title="Обновить кеш" /></a>
+                </td>
+    		    <td style="text-align:center;" align="center" >
+                    <a href="/admin123/main/logout/"><img src="/themes/admin/images/logout1.png" style="float:right;" title="Выход" /></a>
+    		    </td>
+    		</tr>
+    		</table>
+    	</div></div>
+    	
+        <div class="navbar">
+            <div class="breadcrumb" >
+				<a href="/" >Novaya-Riga.Ru</a> > <a href="/admin123/">Контрольная панель</a>
+                            	            		 >
+            		             		 <a href="/admin123/places/" >Каталог КП и НП</a>
+            		             	            		 >
+            		 Редактирование записи            	                            </div>
+        </div>
+    </div>
+
+	<img src="/themes/admin/images/mainmenu_close.png" class="menu_switch" alt="" style="display: none;" />
+	<img src="/themes/admin/images/mainmenu_open.png" class="menu_switch" alt=""   />
+	
+	<div class="left_sidebar" style="margin-top:30px;" >
+		<div id="menu" class="left_menu">
+			<!--ul style="padding-left: 20px; list-style-type: none;">
+				<li>
+					<a href="#" onclick="AjexFileManager.open({returnTo: ''}); return false;" title="Загрузить файл">Загрузить файл</a>
+				</li>
+			</ul-->
+
+			<ul style="padding-left: 20px; list-style-type: none;">
+								<li>
+					<span class="group" >Содержание</span>
+					<ul style="padding-left: 0; list-style-type: none; margin-top:5px; margin-bottom:5px; width:130px;">
+                    											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/sitemap/'"  >
+							<a href="/admin123/sitemap/" >Sitemap</a>
+						</li>
+											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/complains/'"  >
+							<a href="/admin123/complains/" >Жалобы (Пожаловаться)</a>
+						</li>
+											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/blogs/'"  >
+							<a href="/admin123/blogs/" >Блоги</a>
+						</li>
+											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/reporterrors/'"  >
+							<a href="/admin123/reporterrors/" >Отчет об ошибках</a>
+						</li>
+											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/xmljobs/'"  >
+							<a href="/admin123/xmljobs/" >Xml Обработчик</a>
+						</li>
+											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/widgets/'"  >
+							<a href="/admin123/widgets/" >Виджеты</a>
+						</li>
+											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/locations/'"  >
+							<a href="/admin123/locations/" >Справочники Для Объектов</a>
+						</li>
+											<li class="left_menu_item  left_menu_selected "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/places/'"  >
+							<a href="/admin123/places/" >Каталог КП и НП</a>
+						</li>
+											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/property/'"  >
+							<a href="/admin123/property/" >Объекты Недвижимости</a>
+						</li>
+											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/infrastructure/'"  >
+							<a href="/admin123/infrastructure/" >Инфраструктура</a>
+						</li>
+											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/agencies/'"  >
+							<a href="/admin123/agencies/" >Агенты Недвижимости</a>
+						</li>
+											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/structure/'"  >
+							<a href="/admin123/structure/" >Структура</a>
+						</li>
+											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/feedback/'"  >
+							<a href="/admin123/feedback/" >Обратная связь</a>
+						</li>
+											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/robokassa/'"  >
+							<a href="/admin123/robokassa/" >ROBOKASSA</a>
+						</li>
+											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/banners/'"  >
+							<a href="/admin123/banners/" >Баннеры</a>
+						</li>
+											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/parteners/'"  >
+							<a href="/admin123/parteners/" >Партнёры</a>
+						</li>
+											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/clients/'"  >
+							<a href="/admin123/clients/" >Клиенты</a>
+						</li>
+											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/exchange/'"  >
+							<a href="/admin123/exchange/" >Внутренние курсы</a>
+						</li>
+											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/news/'"  >
+							<a href="/admin123/news/" >Новости</a>
+						</li>
+											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/linkremap/'"  >
+							<a href="/admin123/linkremap/" >Каталог соответствий линков</a>
+						</li>
+											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/track/'"  >
+							<a href="/admin123/track/" >Журнал изменений объектов</a>
+						</li>
+										</ul>
+				</li>
+								<li>
+					<span class="group" >Инструменты</span>
+					<ul style="padding-left: 0; list-style-type: none; margin-top:5px; margin-bottom:5px; width:130px;">
+                                            <li class="left_menu_item" >
+                            <a href="#" onclick="AjexFileManager.open({returnTo: ''}); return false;" title="Загрузить файл">Загрузить файл</a>
+                        </li>
+                    											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/letters/'"  >
+							<a href="/admin123/letters/" >Шаблоны писем</a>
+						</li>
+											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/labels/'"  >
+							<a href="/admin123/labels/" >Метки</a>
+						</li>
+											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/handbook/'"  >
+							<a href="/admin123/handbook/" >Справочник</a>
+						</li>
+											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/templates/'"  >
+							<a href="/admin123/templates/" >Шаблоны</a>
+						</li>
+										</ul>
+				</li>
+								<li>
+					<span class="group" >Настройки</span>
+					<ul style="padding-left: 0; list-style-type: none; margin-top:5px; margin-bottom:5px; width:130px;">
+                    											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/modules/'"  >
+							<a href="/admin123/modules/" >Модули</a>
+						</li>
+											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/test/'"  >
+							<a href="/admin123/test/" >Монитор</a>
+						</li>
+											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/errors/'"  >
+							<a href="/admin123/errors/" >Ошибки</a>
+						</li>
+											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/skins/'"  >
+							<a href="/admin123/skins/" >Темы</a>
+						</li>
+											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/options/'"  >
+							<a href="/admin123/options/" >Опции</a>
+						</li>
+											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/users/'"  >
+							<a href="/admin123/users/" >Пользователи</a>
+						</li>
+											<li class="left_menu_item "
+							onmouseover="$(this).addClass('left_menu_hover');" onmouseout="$(this).removeClass('left_menu_hover');"
+							onclick="window.location = '/admin123/logging/'"  >
+							<a href="/admin123/logging/" >Логирование</a>
+						</li>
+										</ul>
+				</li>
+							</ul>
+		</div>
+	</div>
+
+	<div class="main_sidebar" >
+		<div class="sidebar_content" >
+			<div style="margin: 0 5px 5px; padding-top:38px;">
+											<a class="grid_control  selected_control " href="/admin123/places/" >Каталог КП и НП</a>
+								<a class="grid_control " href="/admin123/places/basket/" >Корзина</a>
+										</div>        
+	
+	        <div style="padding:20px" >
+                    
+                    			<script type="text/javascript" src="/themes/admin/js/translit.js" ></script>
+<script type="text/javascript" >
+var theme = '/themes/admin/';
+var translite_from = 'edit[name]';
+var translite_to = 'edit[alias]';
+
+$('document').ready(function(){
+	Translit.set('input[name="'+translite_from+'"]', 'input[name="'+translite_to+'"]');
+});
+
+function lockLabelInput(obj)
+{
+	var label_field = $('input[name='+translite_to+']');
+	if (obj.src.toString().indexOf('lock_off') != -1){
+		obj.src = theme+"images/lock_on22.png";
+		label_field.css({'background-color' : '#f6f6f5'}).attr('readonly', true);
+		$('#lock_alias_field').val(1);
+	} else {
+		obj.src = theme+"images/lock_off22.png";
+		label_field.css({'background-color' : 'transparent'}).attr('readonly', false);
+		$('#lock_alias_field').val(0);
+	}
+}
+
+</script>	
+<form method="post" id="form_edit" name="form_edit" enctype="multipart/form-data" action="" target="_self">
+    <div>
+    			<div style="float:left; padding-top:8px;" ><a href="/admin123/places/" class="font15"><img src="/themes/admin/images/lar_blue.png" style="margin:0 5px -2px 0"  alt="" />Назад</a></div>
+		
+		<div style="text-align:center;" >
+			<a href="javascript:void(0);" onclick="form_edit_validate();" class="edit_buttons" ><img src="/themes/admin/images/save.gif" style="margin:0 3px -9px 0" alt="" />Сохранить</a>
+			<a href="javascript:void(0);" onclick="form_edit_validate(1);" class="edit_buttons" style="margin-left:30px;" ><img src="/themes/admin/images/save.gif" style="margin:0 3px -9px 0" alt="" />Сохранить и выйти</a>
+		</div>
+	</div>
+
+	<div style="border-bottom:1px solid #ccc; padding-bottom:10px; margin-bottom:10px;" ></div>
+	<table cellpadding="0" cellspacing="0" border="0" width="100%" ><tr>
+<!-- Центральная колонка -->
+<td style="vertical-align:top;">
+	<div class="tab_art">
+	    <ul>
+							<li id="ul_main" class="select" onclick="tabs_show('main');">Общая</li>
+							<li id="ul_seo"  onclick="tabs_show('seo');">SEO</li>
+							<li id="ul_images"  onclick="tabs_show('images');">Изображения</li>
+							<li id="ul_video"  onclick="tabs_show('video');">Видео</li>
+							<li id="ul_position"  onclick="tabs_show('position');">Cпец предложения</li>
+							<li id="ul_moderators"  onclick="tabs_show('moderators');">Модераторы</li>
+							<li id="ul_panorams"  onclick="tabs_show('panorams');">Панорама</li>
+				    </ul>
+	</div>
+
+	<div style="border: 1px solid #0560A6; clear: both;">
+		    	<div id="tabs_main" class="tabs_hide" style="display:block;">
+			<div class="forms1">
+	<div class="string">
+		<div class="input_name" >Название<span class="orange">*</span>:</div>
+		<div class="line_div"><input name="edit[name]" value="Проверочный Дурлешты" class="input" type="text" id="name_field" /></div>
+	</div>
+	<div class="string">
+		<div class="input_name" >Алиас<span class="orange">*</span>:</div>
+		<div class="line_div" >
+                        <input name="edit[alias]" class="input" type="text" value="proverochnij-durleshti" id="label_field"
+                                   readonly style="background-color:#f6f6f5;"  />
+                        <img src="/themes/admin/images/lock_on22.png" title="Заблокировать алиас для редактирования"
+                                 style="margin-bottom:-5px; cursor:pointer;" onclick="lockLabelInput(this);" />
+                        <input type="hidden" value="1" name="edit[lock_alias]" id="lock_alias_field" />
+		</div>
+	</div>
+                        <div class="string">
+            <div class="input_name">Загрузить логотип для карты:</div>
+            <div class="line_div">
+                <input id="photo_input" name="logo" value="" style="height:22px;" class="input" type="file" />
+            </div>
+        </div>
+        <div class="string">
+            <div class="input_name">Загрузить логотип для объекта:</div>
+            <div class="line_div">
+                <input id="photo_input" name="logo1" value="" style="height:22px;" class="input" type="file" />
+            </div>
+        </div>
+        <div class="string">
+            <div class="input_name" >Метки:</div>
+            <div class="line_div">
+                    <textarea name="edit[tags]" class="input" style="height:120px;"  ></textarea>
+            </div>
+        </div>
+        <div class="string">
+                <div class="input_name" >Анонс(макс 500 сим.):</div>
+                <div class="line_div">
+                        <textarea name="edit[anons]" class="input" style="height:120px;"  >Текст Описания АнонсаТекст Описания АнонсаТекст Описания АнонсаТекст Описания АнонсаТекст Описания АнонсаТекст Описания АнонсаТекст Описания Анонса</textarea>
+                </div>
+        </div>
+        <div class="string">
+                <div class="input_name" >Скрытое поле:</div>
+                <div class="line_div">
+                        <textarea name="edit[hidden_field]" class="input" style="height:100px;"  ><div style=&quot;display:none;&quot;><img border=&quot;0&quot; height=&quot;1&quot; src=&quot;http://ad.adriver.ru/cgi-bin/rle.cgi?sid=1&ad=376008&bt=21&bid=2255027&bn=2255027&rnd=206678142&quot; width=&quot;1&quot; /></div></textarea>
+                </div>
+        </div>
+
+        <div class="string">
+                <div class="input_name" >Текст:</div>
+                <div class="line_div">
+                        <script type="text/javascript" >window.CKEDITOR_BASEPATH='/themes/admin/js/ckeditor/';</script>
+			<script src="/themes/admin/js/ckeditor/ckeditor.js?t=A1QD" type="text/javascript"></script>
+			<textarea name="edit[text]" >&lt;p&gt;
+	Текст Описания Текст ОписанияТекст ОписанияТекст ОписанияТекст ОписанияТекст ОписанияТекст ОписанияТекст ОписанияТекст ОписанияТекст ОписанияТекст ОписанияТекст ОписанияТекст ОписанияТекст ОписанияТекст ОписанияТекст ОписанияТекст ОписанияТекст ОписанияТекст ОписанияТекст ОписанияТекст ОписанияТекст Описания&lt;/p&gt;
+</textarea>
+			<script type="text/javascript">
+				jQuery(document).ready(function(){
+					Shadowbox.init({players: ["html" , "img" , "iframe" ]});
+					var ckeditor = CKEDITOR.replace("edit[text]",
+						{width : "755", height : "200", language : "ru", toolbar : "normal"});
+
+                     AjexFileManager.init({
+                        returnTo: "ckeditor",
+                        editor: ckeditor,
+                        skin: "light"
+  /*
+              width: "", // Ширина popup, default=1000
+              height: "", // Высота popup, default=660
+              skin: "", // [dark, light], default=dark
+              lang: "", // Язык, сейчас есть [ru, en], default=ru
+              connector: "", // default=php,
+              contextmenu: true // [true, false], default=true
+*/
+                     });
+				});
+
+				function fileHideMedia(){
+					Shadowbox.close();
+				}
+			</script>                </div>
+        </div>
+
+        <div class="string">
+                <div class="input_name" >Комуникации:</div>
+                <div class="line_div">
+                        <script type="text/javascript" >window.CKEDITOR_BASEPATH='/themes/admin/js/ckeditor/';</script>
+			<script src="/themes/admin/js/ckeditor/ckeditor.js?t=A1QD" type="text/javascript"></script>
+			<textarea name="edit[communications]" >&lt;p&gt;
+	Коммуникации&lt;/p&gt;
+</textarea>
+			<script type="text/javascript">
+				jQuery(document).ready(function(){
+					Shadowbox.init({players: ["html" , "img" , "iframe" ]});
+					var ckeditor = CKEDITOR.replace("edit[communications]",
+						{width : "755", height : "200", language : "ru", toolbar : "normal"});
+
+                     AjexFileManager.init({
+                        returnTo: "ckeditor",
+                        editor: ckeditor,
+                        skin: "light"
+  /*
+              width: "", // Ширина popup, default=1000
+              height: "", // Высота popup, default=660
+              skin: "", // [dark, light], default=dark
+              lang: "", // Язык, сейчас есть [ru, en], default=ru
+              connector: "", // default=php,
+              contextmenu: true // [true, false], default=true
+*/
+                     });
+				});
+
+				function fileHideMedia(){
+					Shadowbox.close();
+				}
+			</script>                </div>
+        </div>
+</div>
+
+
+<div class="forms1">
+    <div class="string">
+       <div >Местоположение объекта на карте:</div>
+       <div class="input_name" >Широта:</div>
+        <div class="line_div">
+				<input class="input" type="text" id="latitude" name="edit[map_latitude]" value="55.752" style="width: 200px;"  />
+		</div>	
+      </div>  
+      
+    <div class="string">
+        <div class="input_name" >Долгота:</div>
+        <div class="line_div"><input class="input" type="text" id="longitude" name="edit[map_longitude]" value="37.616" style="width: 200px;"  />
+				<input type="button"  value="Применить" onclick="updateMap();" />
+         </div>       
+    </div>
+   
+        <div class="string">
+                <div class="input_name" >Координаты полигона:</div>
+                <div class="line_div">
+                    <textarea id="policoords" name="edit[policoords]" style="height:60px; width:450px;"></textarea>
+                </div>
+        </div> 
+   
+        <div class="string">
+                <div class="input_name" >Толщина линии полигона:</div>
+                <div class="line_div">
+                 
+                   <select name="edit[strokeweight]" id="strokeweight"   onchange="polygonSetStroke('strokeweight')">
+                         <option value="1"  >1px</option> 
+                         <option value="2"   selected="selected" >2px</option> 
+                         <option value="3"  >3px</option> 
+                         <option value="4"  >4px</option> 
+                         <option value="5"  >5px</option> 
+                        
+                    </select>
+                </div>
+        </div> 
+        <div class="string" style="display:none;">
+                <div class="input_name" >Цвет линии полигона:</div>
+                <div class="line_div">
+                    <input type="text" id="policolor" class="color" name="edit[policolor]" value="9018D6" onchange="polygonSetColor(this.value)"/>
+                </div>
+        </div> 
+   
+        
+    <input type="hidden" name="edit[map_zoom]" value="8" id="map_zoom" />
+    <input type=button onclick="getPoligon('policoords')" value="Получить Координаты">
+    <input type=button onclick="clearPoligons('policoords')" value="Очистить карту">
+    <input type=button onclick="applyPoligons('policoords')" value="Применить координаты">
+    
+    <div id="map_canvas" style="width: 740px; height: 420px"></div>
+</div>
+
+ <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=drawing&language=ru"> </script>
+ <script type="text/javascript" src="/js/admin_polygons.js"> </script>
+  
+        
+            <script type="text/javascript">
+                var FillColor = '9018D6';
+                var PolygonColor = '000080';
+                var mapZoom = 8;
+                var MyLatitude = '55.752';
+                var MyLongitude = '37.616';
+                var MystrokeWeight = '2';
+                        
+                
+                $(document).ready(function() {
+                    initializeGooglePolygons();
+                    
+                                          
+                });
+                
+                
+             </script>   
+    
+    
+    
+    
+
+<input type="hidden" name="id" value="1187">
+<input type="hidden" name="old_parent" value="0">
+<input type="hidden" name="edit_exit" value="0" id="edit_exit" />
+<script type="text/javascript" >
+var skin = '/themes/admin/';
+
+function rmLogo(id, obj) {
+        if (!confirm('Вы точно хотите удалить изображение?')) return;
+
+        JsHttpRequest.query('/admin123/places/rmLogo/', {'id': id},
+			function(result, errors){
+				$(obj).parent().parent().remove();
+			}, false
+        );
+    }
+    
+function rmLogo1(id, obj) {
+        if (!confirm('Вы точно хотите удалить изображение?')) return;
+
+        JsHttpRequest.query('/admin123/places/rmLogo1/', {'id': id},
+			function(result, errors){
+				$(obj).parent().parent().remove();
+			}, false
+        );
+    }
+
+
+</script>    	</div>
+		    	<div id="tabs_seo" class="tabs_hide" >
+			<div class="forms1">
+	<div class="string">
+		<div class="input_name" >Заголовок H1:</div>
+		<div class="line_div"><input name="seo[h1]" value="" class="input" type="text" id="name_field" /></div>
+	</div>
+	<div class="string">
+		<div class="input_name" >Title:</div>
+		<div class="line_div"><input name="seo[title]" value="" class="input" type="text" id="name_field" /></div>
+	</div>
+	<div class="string">
+		<div class="input_name" >Keywords:</div>
+		<div class="line_div">
+			<textarea name="seo[keywords]" class="input" style="height:130px;" ></textarea>
+		</div>
+	</div>
+	<div class="string">
+		<div class="input_name" >Description:</div>
+		<div class="line_div">
+			<textarea name="seo[description]" class="input" style="height:130px;" ></textarea>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript" >
+</script>    	</div>
+		    	<div id="tabs_images" class="tabs_hide" >
+			<div class="forms1 form_edit_div_show"  >
+    <div class="string">
+        <div class="input_name">Превью:</div>
+        <div class="line_div" style="clear:both;width:735px;overflow: auto;">
+            <ul id="photo_table">
+                               </ul>
+        </div>
+       
+    </div>
+      <a href="javascript:clear_cpecial();"><span>Очистить спецпредложения</span></a>
+    <div class="string">
+        <div class="input_name">Загрузить изображение:</div>
+        <div class="line_div">
+            Описание:<br><input id="photo_input_alt" name="photo_alt" value="" style="width:453px;" type="text" /><br>
+            <input id="photo_input" name="photo" value="" style="height:22px;" class="input" type="file" />
+           
+            <br><input name="watermark" value="0" type="hidden"  />
+                <input name="watermark" value="1" type="checkbox" checked=checked/> Применить водяной знак
+               <br>  <br> <span id="photo_save_msg" ><a href="javascript:void(0);" onclick="LoadPhoto($('#photo_input')[0]);" >Загрузить</a></span>
+           <br> <span id="photo_save_ind" style="display:none;"><img src="/themes/admin/images/ajax-loader2.gif" /></span>
+        </div>
+    </div>
+</div>
+
+<div class="forms1 form_edit_div_hide" style="display:none;" >
+    <div class="string">Для добавления фотографий сохраните объект.</div>
+</div>
+
+<input name="images[alias]" type="hidden" value="places" />
+<input name="images[alias_img]" type="hidden" value="places" />
+
+<script type="text/javascript" >
+    var admin = '/admin123';
+    var theme = '/themes/admin/';
+    var unit_id = '1187';
+    var alias = 'places'
+    var alias_img = 'places';
+    var path = '/files/places/'
+    var item_state = false;
+    
+
+    function LoadPhoto(obj) {
+        if (item_state) return;
+
+        $('#photo_save_msg').hide();
+        $('#photo_save_ind').show();
+
+		item_state = true;
+		JsHttpRequest.query(admin+'/images/addPhoto/',
+				{'form':$('#form_edit')[0]},
+				function(result, errors){
+                    item_state = false
+
+					if (result && result.res == 0){
+                        $.dqMessage('Ошибка добавлния фото', {type:'error', 'life' : 10000});
+					} else if(result && result.res == 1){
+                        ch="";
+                        if (result.main!= undefined && result.main==1){
+                            ch=" checked ";
+                        }
+                        var td = $('<li>'+
+                            '<input type="hidden" name="id_hid" value="'+result.new_id+'"/>'+
+                            '<div class="conteiner">'+
+                                        '<div>'+
+                                            '<div style="float:right; cursor:pointer;padding:0 5px;" onclick="rmPhoto(this, '+result.new_id+');" >'+
+                                                '<img src="'+theme+'images/del.gif" />'+
+                                            '</div>'+
+                                        '<img src="'+path+result.name+'" width="100"  />\n\
+                                        </div>'+
+                                        '<div> <label>Описание:<br><input type="text" value="'+result.alt+'" name="img[alt]['+result.new_id+']" /></label>\n\
+                                                <br><label><input type="radio" value="'+result.new_id+'" name="img[id]" '+ ch +'> Главная</label><br>\n\
+                                                <label><input type="radio" value="'+result.new_id+'" name="img[id_spec]"> Спец предложение</label>\n\
+                                        </div>'+
+                                    '</div>'+
+                                '</li>');
+                                
+                                
+                            
+                        $('#photo_table').append(td);
+                        obj.value = '';
+
+
+                   
+                   
+                       
+                        $.dqMessage('Фотография успешно добавлена', {type:'default', 'life' : 2000});
+					} else {
+		                console.log(result, errors);
+					}
+
+                    $('#photo_save_msg').show();
+                    $('#photo_save_ind').hide();
+				}, true
+			);
+    }
+
+    function rmPhoto(obj, id) {
+        if (!confirm('Вы точно хотите удалить изображение?')) return;
+
+		JsHttpRequest.query(admin+'/images/rmPhoto/',
+				{'id':id, 'alias':alias, 'alias_img':alias_img},
+				function(result, errors){
+                    item_state = false
+
+					if (result && result.res == 0){
+                        $.dqMessage('Ошибка удаления фото', {type:'error', 'life' : 10000});
+					} else if(result && result.res == 1){
+                        $(obj.parentNode).parent().remove();
+                        send_edit_message(unit_id, alias);
+                        $.dqMessage('Фотография успешно удалена', {type:'default', 'life' : 2000});
+					} else {
+		                console.log(result, errors);
+					}
+
+				}, true
+			);
+    }
+
+function send_edit_message(unit_id, alias){
+    		JsHttpRequest.query(admin+'/'+alias+'/editPhoto/',
+				{'id':unit_id},
+				function(result, errors){
+
+                   
+				}, true
+			);
+}
+
+function clear_cpecial(){
+  $(".img_id_spec").attr("checked", false);  
+}
+
+ function sort_func (){      
+        $('#photo_table').sortable({
+            stop: function(event, ui) {  sort_elements(); /*console.log($(ui.item).index());*/ }
+        });
+    }
+        
+    function sort_elements(){
+        var arr_item = new Array()
+        $('#photo_table li').each(function(){
+            arr_item[$(this).find('[name=id_hid]').val()+'_key']= $(this).index();
+        });
+        
+        JsHttpRequest.query(admin+'/images/changeOrder/',
+                {'arr_item':arr_item},
+                function(result, errors){
+                       item_state = false
+
+                    if (result && result.res == 0){
+                    } else if(result && result.res == 1){
+                    } else {
+                        console.log(result, errors);
+                    }
+
+                }, true
+        );
+    }
+    
+</script>
+    	</div>
+		    	<div id="tabs_video" class="tabs_hide" >
+			<div class="forms1">
+        <div class="string">
+        <div class="input_name">Загрузить изображение:</div>
+        <div class="line_div">
+            <input  name="img_name" value="" style="height:22px;" class="input" type="file" />
+        </div>
+    </div>
+    <div class="string">
+        <div class="input_name" >Описание:</div>
+        <div class="line_div"><input name="video[description]" value="" class="input" type="text" id="name_field" /></div>
+    </div>
+    <div class="string">
+        <div class="input_name" >Код Видео:</div>
+        <div class="line_div"><textarea name="video[code]" class="input" id="name_field" style="height:100px; width:400px;"></textarea></div>
+    </div>
+    </div>
+
+<input type="hidden" name="video[obj_id]" value="1187">
+<input type="hidden" name="edit_exit" value="0" id="edit_exit" />
+<script type="text/javascript" >
+var skin = '/themes/admin/';
+
+function rmVideo(id, obj, obj_id) {
+        if (!confirm('Вы точно хотите удалить Видео?')) return;
+        JsHttpRequest.query('/admin123/places/rmVideo/', {'id': id, 'obj_id':obj_id},
+                function(result, errors){
+                        $(obj).parent().parent().remove();
+                }, false
+        );
+    }
+
+
+</script>    	</div>
+		    	<div id="tabs_position" class="tabs_hide" >
+			<div class="forms1">
+
+        
+ 
+            
+            <div style="float:right; margin-left:4px; display:none;" id="position_values">
+               
+                <select name="edit[place_value1]"  id="places_values">
+                        <option value="0" >--Выбор--</option> 
+                                    
+              </select>
+               
+              </div>  
+    
+
+<div class="string">
+    <div class="input_name">Позиция (Центральная часть):</div>
+    <div class="line_div">
+		<input type="hidden" name="edit[place_id1]" value="0" />
+		<input type="checkbox" name="edit[place_id1]" value="57"  />
+    </div>
+</div>
+
+<div class="string">
+    <div class="input_name">Позиция (Правая часть):</div>
+    <div class="line_div">
+		<input type="hidden" name="edit[place_id2]" value="0" />
+		<input type="checkbox" name="edit[place_id2]" value="55"  />
+    </div>
+</div>
+
+     <div class="string">
+        <div class="input_name" >Название для спецпредложения:</div>
+        
+        <div class="line_div">
+            <input type="text" class="input"  name="edit[reclam_name]" value="" />
+            
+        </div>
+
+    </div>
+
+<div class="string">
+    <div class="input_name">Начало публикации:</div>
+    <div class="line_div" >
+    	<input name="edit[special_from_date]" value="0000-00-00"
+    		   type="text" style="width: 100px;" class="input has_datepick" />
+    </div>
+</div>
+
+<div class="string">
+    <div class="input_name">Конец публикации:</div>
+    <div class="line_div" >
+    	<input name="edit[special_to_date]" value="0000-00-00"
+    		   type="text" style="width: 100px;" class="input has_datepick" />
+    </div>
+</div>
+	<div class="string">
+		<div class="input_name">Описание для цены:</div>
+    
+		<div class="line_div">
+			<input type="text" class="input"  name="edit[price_description]" value="" maxlength="20" />
+		</div>
+	</div>
+    
+     <div class="string">
+        <div class="input_name" >Анонс для спецпредложения:</div>
+        
+        <div class="line_div">
+           
+             <script type="text/javascript" >window.CKEDITOR_BASEPATH='/themes/admin/js/ckeditor/';</script>
+			<script src="/themes/admin/js/ckeditor/ckeditor.js?t=A1QD" type="text/javascript"></script>
+			<textarea name="edit[special_text]" ></textarea>
+			<script type="text/javascript">
+				jQuery(document).ready(function(){
+					Shadowbox.init({players: ["html" , "img" , "iframe" ]});
+					var ckeditor = CKEDITOR.replace("edit[special_text]",
+						{width : "755", height : "200", language : "ru", toolbar : "normal"});
+
+                     AjexFileManager.init({
+                        returnTo: "ckeditor",
+                        editor: ckeditor,
+                        skin: "light"
+  /*
+              width: "", // Ширина popup, default=1000
+              height: "", // Высота popup, default=660
+              skin: "", // [dark, light], default=dark
+              lang: "", // Язык, сейчас есть [ru, en], default=ru
+              connector: "", // default=php,
+              contextmenu: true // [true, false], default=true
+*/
+                     });
+				});
+
+				function fileHideMedia(){
+					Shadowbox.close();
+				}
+			</script>        </div>
+
+    </div> 
+     <div class="string">
+        <div class="input_name" >URL для спецпредложения:</div>
+        
+        <div class="line_div">
+            <input type="text" class="input"  name="edit[reclam_url]" value="" />
+            
+        </div>
+
+    </div> 
+
+                        <div class="string">
+            <div class="input_name">Загрузить фото для центрального спеца (240*183):</div>
+            <div class="line_div">
+                <input id="photo_input" name="logo2" value="" style="height:22px;" class="input" type="file" />
+            </div>
+        </div>
+        <div class="string">
+            <div class="input_name">Загрузить фото для бокового спеца (210*141):</div>
+            <div class="line_div">
+                <input id="photo_input" name="logo3" value="" style="height:22px;" class="input" type="file" />
+            </div>
+        </div>
+        
+</div>
+
+ <script type="text/javascript">
+function fillOptionsPlaces(a){
+    var myJSONObject = {"bindings":{"55":{"id":"55","val":"8"},"57":{"id":"57","val":"4"}}};
+                        
+    fill_el=$("#places_values");
+    sel_id = $('#place_id').val();
+    fill_el.find('option').remove().end().append('<option value="0" >--Выбор--</option>');
+   
+    if (sel_id>0){
+        total = myJSONObject.bindings[sel_id].val;
+        for (var i = 1; i <= total; i++) {
+           fill_el.append('<option value="'+i+'" >'+i+'</option>'); 
+        }
+    }
+   
+}
+
+function rmLogo2(id, obj) {
+        if (!confirm('Вы точно хотите удалить изображение?')) return;
+
+        JsHttpRequest.query('/admin123/places/rmLogo2/', {'id': id},
+			function(result, errors){
+				$(obj).parent().parent().remove();
+			}, false
+        );
+    }
+    
+function rmLogo3(id, obj) {
+        if (!confirm('Вы точно хотите удалить изображение?')) return;
+
+        JsHttpRequest.query('/admin123/places/rmLogo3/', {'id': id},
+			function(result, errors){
+				$(obj).parent().parent().remove();
+			}, false
+        );
+    }
+    
+    
+
+$(document).ready(function(){
+	$('.has_datepick').datepick({dateFormat: 'yy-mm-dd'});
+});
+
+
+
+
+
+
+</script>
+    	</div>
+		    	<div id="tabs_moderators" class="tabs_hide" >
+			<div class="forms1">
+
+    <div class="string">
+        <div style="float:left; width:250px;">
+            <p style="font-size: 13px;text-align: left;color: #0560A6;padding-top: 3px;padding-bottom: 5px; margin-top:0;">Привязанные модераторы:</p4>
+            <ol>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </ol>
+    </div>
+
+    <div style="float:right; width:500px">
+        <div class="input_name" >Список пользователей:</div>
+        <select name="moderators[]"  multiple style="height: 500px;width:500px">
+                            <option value="10"  >0512</option>
+                            <option value="30"  >ALBERTBOR</option>
+                            <option value="11"  >alena</option>
+                            <option value="40"  >alex</option>
+                            <option value="64"  >Alexa</option>
+                            <option value="59"  >alexmahar</option>
+                            <option value="83"  >alla</option>
+                            <option value="81"  >andrew_8</option>
+                            <option value="41"  >andriano</option>
+                            <option value="28"  >casadelsol</option>
+                            <option value="51"  >Cleaner69</option>
+                            <option value="49"  >diana</option>
+                            <option value="69"  >Evg_maximov</option>
+                            <option value="26"  >franko</option>
+                            <option value="35"  >horoshovo</option>
+                            <option value="24"  >hydroengservice</option>
+                            <option value="47"  >igormohov</option>
+                            <option value="56"  >igorvidus</option>
+                            <option value="70"  >Ilia_Shchipkov</option>
+                            <option value="42"  >istraland</option>
+                            <option value="79"  >iuka</option>
+                            <option value="46"  >iveller</option>
+                            <option value="61"  >JuliaT</option>
+                            <option value="13"  >julija</option>
+                            <option value="53"  >kalinka</option>
+                            <option value="18"  >Katya</option>
+                            <option value="52"  >kenneth</option>
+                            <option value="72"  >kmozer</option>
+                            <option value="58"  >korolevaolga10</option>
+                            <option value="29"  >kp_skiper</option>
+                            <option value="23"  >krokodil</option>
+                            <option value="39"  >lfdsljdf</option>
+                            <option value="16"  >lomon</option>
+                            <option value="37"  >Lu46iy</option>
+                            <option value="50"  >luzhki2</option>
+                            <option value="55"  >maximus</option>
+                            <option value="36"  >milena_777_87</option>
+                            <option value="54"  >nemovat</option>
+                            <option value="17"  >Newsonline</option>
+                            <option value="33"  >nikysia18</option>
+                            <option value="20"  >noazis</option>
+                            <option value="34"  >notadom</option>
+                            <option value="32"  >nslovesnikova</option>
+                            <option value="38"  >OldBob</option>
+                            <option value="65"  >Olga111</option>
+                            <option value="57"  >olga22</option>
+                            <option value="22"  >OlgaWunderpark</option>
+                            <option value="19"  >OZykunova</option>
+                            <option value="45"  >pong</option>
+                            <option value="15"  >porolon</option>
+                            <option value="67"  >prrdn</option>
+                            <option value="76"  >Raynor</option>
+                            <option value="21"  >romashkina1111</option>
+                            <option value="74"  >rubailo</option>
+                            <option value="75"  >santehexpo</option>
+                            <option value="14"  >skrynnik</option>
+                            <option value="60"  >Slenina2</option>
+                            <option value="66"  >Sobstvennik</option>
+                            <option value="48"  >TatyanaMelody</option>
+                            <option value="82"  >testik</option>
+                            <option value="78"  >vadbin</option>
+                            <option value="63"  >Valentina</option>
+                            <option value="27"  >Vanille80</option>
+                            <option value="62"  >Vasiliy</option>
+                            <option value="12"  >vasya</option>
+                            <option value="71"  >vdgpooh</option>
+                            <option value="77"  >veres</option>
+                            <option value="43"  >vidus</option>
+                            <option value="73"  >viku</option>
+                            <option value="68"  >voolfs66</option>
+                            <option value="25"  >VValmont</option>
+                            <option value="31"  >zashita</option>
+                            <option value="44"  >zhukov</option>
+                    </select>
+    </div>
+</div>
+
+</div>
+    	</div>
+		    	<div id="tabs_panorams" class="tabs_hide" >
+			<div class="forms1">
+        <p>Загрузите XML и картинки указанные в хмл в ноде -image- .
+        <br><span style="color:red">Загрузка файлов лимитирована данными системными настройками: post_max_size=512M upload_max_filesize=512M max_file_uploads=20</span>
+    </p>
+    
+    
+        
+    <table class="table_bord" width="100%" cellspacing="1">
+	<tbody>
+            <tr id="tr_head">
+                <th align="center" nowrap="nowrap" style="width:10px;"></th>
+                <th align="center" nowrap="nowrap" style="text-align:left;">Текушее значение</th>
+                <th align="center" nowrap="nowrap" style="width:20px;">Удалить</th>
+            </tr>
+              <tr id="tr_1" class="">
+                  <td align="center" style="width:10px;">XML</td>
+                  <td align="center" style="width:10px;">
+                                                  <input type="file" name="panorams[panoram_xml]">
+                                        </td>
+                  
+                  <td align="center" style="width:10px;">
+                       <a href="javascript:void(0);" onclick="rmPanoram('panoram_xml', this, 1187);">
+                        <img title="Удалить" alt="Удалить" src="/themes/admin/images/delete1.gif" style="margin-bottom:-3px">
+                        </a>
+                  </td>
+                  
+            </tr>    
+            
+                        
+            
+        <tr id="tr_CI1" class="clonedInputPanImage">
+                      <td align="center" style="width:10px;">Файл </td>
+                      <td align="center" style="width:10px;">
+                          
+                          <input type="file" name="panorams_imgs[]" class="fn">
+                          
+                      </td>
+
+                      <td align="center" style="width:10px;"></td>
+
+                </tr> 
+            
+            
+            
+    </tbody>        
+    </table>
+    
+     <div>
+    <input type="button" id="btnAddImg" value="Добавить еще к загрузке... " />
+    </div>
+</div>
+
+<script type="text/javascript" >
+var skin = '/themes/admin/';
+
+function rmPanoram(id, obj, obj_id) {
+        if (!confirm('Вы точно хотите удалить файл ?')) return;
+        JsHttpRequest.query('/admin123/places/delete_panoram_field_file/'+id+"/"+obj_id+"/", {'id': id, 'obj_id':obj_id},
+                function(result, errors){
+                        $("#ah_"+id).remove();
+                }, false
+        );
+    }
+
+function rmPanoramImg(id, obj, obj_id) {
+        if (!confirm('Вы точно хотите удалить файл ?')) return;
+        JsHttpRequest.query('/admin123/places/rmPanoramImg/', {'id': id, 'obj_id':obj_id},
+                function(result, errors){
+                        $("#tr_PI"+id).remove();
+                }, false
+        );
+    }
+    
+    $(document).ready(function() {
+     $('#btnAddImg').click(function() {
+
+                var num     = $('.clonedInputPanImage').length; // how many "duplicatable" input fields we currently have
+                var newNum  = new Number(num + 1);      // the numeric ID of the new input field being added
+                
+                // create the new element via clone(), and manipulate it's ID using newNum value
+                var newElem = $('#tr_CI' + num).clone().attr('id', 'tr_CI' + newNum);
+                    newElem.find('.fn').val('');
+                    
+                $('#tr_CI' + num).after(newElem);
+                
+            });
+ });
+
+</script>    	</div>
+			</div>
+</td>
+<!-- /Центральная колонка --><!-- Правая колонка -->
+<td class="edit_table_right" style="vertical-align:top;" >
+
+			<div class="edit_right_block" >
+		    <div class="block_header">
+		        <div style="float:right;" >
+		        	<img src="/themes/admin/images/arr2_up.gif" onclick="toggleEditBlock(this);" style="cursor:pointer;" />
+		        </div>
+		        Опубликовать
+		    </div>
+
+			<div class="block_body">
+				<div class="string">
+    <div class="input_name">Тип:</div>
+    <div class="line_div">
+        <select name="edit[state]" style="width:194px;">
+        	<option value="0"  >Черновик</option>
+        	<option value="1"  selected="selected"  >Опубликовано</option>
+						
+        </select>
+    </div>
+</div>
+
+<!--div class="string">
+    <div class="input_name">Операция:</div>
+    <div class="line_div">
+        <select name="edit[type_sell]" style="width:194px;">
+						<option value="10"  selected="selected"  >Продажа</option>
+						<option value="11"  >Аренда</option>
+			        </select>
+    </div>
+</div-->
+
+<div class="string">
+    <div class="input_name">Недвижимость:</div>
+    <div class="line_div">
+        <select name="edit[type_id]" style="width:194px;" onchange="toggleNP(this)" id="type_id">
+						<option value="3"  selected="selected"  >Коттеджный поселок</option>
+						<option value="2"  >Населённый пункт</option>
+			        </select>
+    </div>
+</div>
+
+<div class="string" id="np_main" style="display:block;">
+    <div class="input_name">Населенный пункт(НП):</div>
+    <div class="line_div" id="np_select">
+                <select name="edit[parent]" style="width:194px;">
+            <option value="0" >--- Выбор ---</option>
+						<option value="1026"  >Барвиха</option>
+						<option value="1044"  >Борки</option>
+						<option value="674"  >Бузланово</option>
+						<option value="1037"  >Глухово</option>
+						<option value="1028"  >Горки-10</option>
+						<option value="1027"  >Горки-2</option>
+						<option value="1089"  >Деревня Веледниково</option>
+						<option value="1052"  >Деревня Дунино</option>
+						<option value="1172"  >Деревня Духанино</option>
+						<option value="1149"  >Деревня Красновидово</option>
+						<option value="712"  >Деревня Раздоры</option>
+						<option value="686"  >Жуковка</option>
+						<option value="1039"  >Захарково</option>
+						<option value="1051"  >Иславское</option>
+						<option value="1030"  >Калчуга</option>
+						<option value="1045"  >Лапино</option>
+						<option value="1036"  >Маслово</option>
+						<option value="1049"  >Назарьево</option>
+						<option value="1048"  >Папушево</option>
+						<option value="1029"  >Подушкино</option>
+						<option value="1050"  >Село Аксиньино</option>
+						<option value="1040"  >Село Архангельское</option>
+						<option value="1042"  >Село Знаменское</option>
+						<option value="1046"  >Село Никольское</option>
+						<option value="1035"  >Село Петрово-дальнее</option>
+						<option value="1034"  >Село Успенское</option>
+						<option value="1053"  >Семенково</option>
+						<option value="1043"  >Солослово</option>
+						<option value="1047"  >Таганьково</option>
+						<option value="1038"  >Уборы</option>
+						<option value="1024"  >Усово</option>
+						<option value="1041"  >Усово-Тупик</option>
+						<option value="1023"  >Шульгино</option>
+			        </select>
+            </div>
+</div>
+
+
+<div class="string">
+	Цена<span class="orange">*</span>:
+</div>	
+<div class="string">
+	от: <input name="edit[price_amount1]" id="price_from" value="3000000" class="input" type="text" style="width:75px;" />
+	до: <input name="edit[price_amount2]" id="price_to" value="30000000" class="input" type="text" style="width:75px;" />
+</div>	
+
+<div class="string">
+    <div class="input_name">Валюта:</div>
+    <div class="line_div">
+        <select name="edit[price_currency]" style="width:194px;">
+						<option value="9"  selected="selected"  >RUR</option>
+			        </select>
+    </div>
+</div>
+
+<div class="string">
+   
+    <div class="line_div">
+<fieldset style="width:350px;">
+<legend>Запретить вывод объявлений</legend>
+  <input name=edit[hide_offers]" value="0" type="hidden"  />
+            <input name="edit[hide_offers]" value="1" type="checkbox"  id="hide_offers"/>Запретить вывод и подачу объявлений
+
+</fieldset>
+    </div>
+</div>
+
+
+
+<div>
+    <table cellspacing="0" cellpadding="0" border="0" style="margin-top: 4px; width: 100%;"><tbody><tr>
+		<td><input type="button" onclick="form_edit_validate();" value="Сохранить"></td>
+    </tr></tbody></table>
+</div>
+
+
+<script type="text/javascript">
+    
+    function number_format(number, decimals, dec_point, thousands_sep){
+         var i, j, kw, kd, km;
+        if( isNaN(decimals = Math.abs(decimals)) ){decimals = 2;}
+        if( dec_point == undefined ){dec_point = ",";}
+        if( thousands_sep == undefined ){thousands_sep = ".";}
+        i = parseInt(number = (+number || 1).toFixed(decimals)) + "";
+        if( (j = i.length) > 3 ){j = j % 3;}
+        else {j = 0;}
+        km = (j ? i.substr(0, j) + thousands_sep : "");
+        kw = i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousands_sep);
+        kd = (decimals ? dec_point + Math.abs(number - i).toFixed(decimals).replace(/-/, 1).slice(2) : "");
+        return km + kw + kd;    
+    }
+    
+$(document).ready(function(){ 
+    var globper = ""; 
+    var globperthis = "";
+    var flagfoto = true;
+
+     $('#price_from').keyup(function (){
+     var keyval =  $('#price_from').val();
+     keyval=keyval.replace(/ /g,"");
+     if (keyval!=""){
+      $('#price_from').val(number_format(keyval, 0, '.', ' '));
+      }
+     });
+
+     $('#price_to').keyup(function (){
+     var keyval =  $('#price_to').val();
+     keyval=keyval.replace(/ /g,"");
+     if (keyval!=""){
+      $('#price_to').val(number_format(keyval, 0, '.', ' '));
+      }
+     });
+});
+    
+    
+    
+    function toggleNP(a){
+        s = $('#type_id').val();
+        c = 2; 
+        d = '1187'; 
+        /* если главная категория указана и мы выбрали не ее то запрос на список нп*/
+        if (c>0 && s!=c){
+            JsHttpRequest.query(admin+'/places/getNP/',
+                    {'id':c, 'item':d },
+                    function(result, errors){
+                        
+
+                        if (result && result.res == 0){
+                            $.dqMessage('Ошибка вывода данных', {type:'error', 'life' : 10000});
+                        } else if(result && result.res == 1){
+                            /* рисуем селект*/
+                            $("#np_select").html(result.txt);
+                            $("#np_main").show();
+                            
+                        } else {
+                            console.log(result, errors);
+                        }
+
+                    }, true
+                );
+            }else{
+             $("#np_select").html('');                
+             $("#np_main").hide();   
+            }
+    }
+    
+</script>
+    		</div>
+    	</div>
+			<div class="edit_right_block" >
+		    <div class="block_header">
+		        <div style="float:right;" >
+		        	<img src="/themes/admin/images/arr2_up.gif" onclick="toggleEditBlock(this);" style="cursor:pointer;" />
+		        </div>
+		        Разное
+		    </div>
+
+			<div class="block_body">
+				<div class="string">
+    <div class="input_name">Район<span class="orange">*</span>:</div>
+    <div class="line_div" >
+       
+           <div  style="margin-bottom:2px;" >
+           <select name="edit[area_id]" style="width:194px;">
+            <option value="0" >--Выбор--</option> 
+						<option value="5"  selected="selected"  >Волоколамский</option>
+						<option value="4"  >Истринский</option>
+						<option value="3"  >Красногорский</option>
+						<option value="2"  >Одинцовский</option>
+			            </select>
+            </div>   
+     </div>  
+ </div>  
+ <div class="string">   
+    <div class="input_name">Шоссе<span class="orange">*</span>:</div>
+    <div class="line_div" id="highwais_div">
+       
+           <div id="input1" style="margin-bottom:2px;" class="clonedInput">
+           <select name="edit[highway_id1]" style="width:194px;">
+            <option value="0" >--Выбор--</option> 
+						<option value="6"  >Волоколамское</option>
+						<option value="5"  selected="selected"  >Ильинское</option>
+						<option value="3"  >Новорижское </option>
+						<option value="4"  >Пятницкое</option>
+						<option value="2"  >Рублево-успенское</option>
+			            </select>
+            </div>   
+        
+        
+                  
+                    
+                  </div>
+    <div class="clear"></div>
+    <div>
+    <input type="button" id="btnAdd" value="Добавить еще" />
+    </div>
+</div>
+
+
+
+<div class="string">
+	<div class="input_name" >Удаленность от МКАД:</div>
+	<div class="line_div">
+		<input name="edit[mkad]" value="5" class="input" type="text" style="width:75px;" /> Km.
+	</div>
+</div>
+
+<div class="string">
+	<div class="input_name" >Готовность:</div>
+	<div class="line_div">
+		 <select name="edit[stage_id]" style="width:194px;">
+             <option value="0" >--Выбор--</option> 
+						<option value="1"  >Строительство</option>
+						<option value="2"  >Завершение строительства</option>
+						<option value="3"  >Построен</option>
+						<option value="4"  >Построен. Продажи на вторичном рынке.</option>
+			        </select>
+	</div>
+</div>
+
+
+
+<div class="string">
+	<div class="input_name" >Площадь домов:</div>
+	<div class="line_div">
+		<input name="edit[house_area1]" value="100" class="input" type="text" style="width:40px;" /> - 
+		<input name="edit[house_area2]" value="200" class="input" type="text" style="width:40px;" />
+	</div>
+</div>
+
+<div class="string">
+	<div class="input_name" >Площадь участков:</div>
+	<div class="line_div">
+		<input name="edit[site_area1]" value="6" class="input" type="text" style="width:40px;" /> - 
+		<input name="edit[site_area2]" value="30" class="input" type="text" style="width:40px;" />
+	</div>
+</div>
+
+<div class="string">
+	<div class="input_name" >Кол-во домов:</div>
+	<div class="line_div">
+		<input name="edit[howses]" value="50" class="input" type="text" style="width:40px;" />
+		
+	</div>
+</div>
+
+<div class="string">
+    <div class="line_div">
+        <fieldset style="width:350px;">
+            <legend>Приоритет в выдаче [5]</legend>
+            <input name=edit[show_first]" value="0" type="hidden"  />
+            <input name="edit[show_first]" value="1" type="checkbox"  id="show_first"/>Всегда первый
+
+            <input name="edit[show_hit]" value="0" type="hidden"  />
+            <input name="edit[show_hit]" value="1" type="checkbox"  id="show_hit"/>Популярный
+            
+            <input name="edit[order]" value="5" type="hidden"  />
+        </fieldset>
+    </div>
+</div> 
+            
+
+ <script type="text/javascript">
+$(document).ready(function() {
+     $('#btnAdd').click(function() {
+
+                var num     = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
+                var newNum  = new Number(num + 1);      // the numeric ID of the new input field being added
+                 if (newNum >= 6){
+                    $('#btnAdd').attr('disabled','disabled');
+                    return false;
+                }
+                // create the new element via clone(), and manipulate it's ID using newNum value
+                var newElem = $('#input' + num).clone().attr('id', 'input' + newNum);
+ 
+                // manipulate the name/id values of the input inside the new element
+                newElem.children(':first').attr('name', 'edit[highway_id' + newNum+']');
+                newElem.children(':first').val(0);
+                // insert the new element after the last "duplicatable" input field
+                $('#input' + num).after(newElem);
+ 
+                // enable the "remove" button
+                //$('#btnDel').attr('disabled','');
+ 
+                // business rule: you can only add 5 names
+                if (newNum >= 5)
+                    $('#btnAdd').attr('disabled','disabled');
+            });
+ });
+</script>
+    		</div>
+    	</div>
+			<div class="edit_right_block" >
+		    <div class="block_header">
+		        <div style="float:right;" >
+		        	<img src="/themes/admin/images/arr2_up.gif" onclick="toggleEditBlock(this);" style="cursor:pointer;" />
+		        </div>
+		        Продавец
+		    </div>
+
+			<div class="block_body">
+				
+<div class="string">
+  	<div class="input_name" >Продавец:</div>
+    <div class="line_div">
+        <select name="edit[saler_id]" style="width:194px;">
+            <option value="0" >--Выбор--</option> 
+						<option value="948"  >Агентство элитной недвижимости Tweed</option>
+						<option value="949"  >Агентство недвижимости "Contact Real Estate"</option>
+						<option value="950"  >Агентство недвижимости "Vesco Realty"</option>
+						<option value="951"  >Агентство недвижимости "Land Capital"</option>
+						<option value="952"  >Управляющая компания "Greenwich Group"</option>
+						<option value="953"  >Агентство загородной недвижимости "Penny Lane Realty"</option>
+						<option value="954"  >Агентство недвижимости "Welhome"</option>
+						<option value="955"  >Агентство элитной недвижимости "Kalinka Realty"</option>
+						<option value="956"  >Консалтинговая компания "Knight Frank"</option>
+						<option value="957"  >Агентство элитной недвижимости "JQ Estate"</option>
+						<option value="958"  >Агентство недвижимости "Premium Realty"</option>
+						<option value="959"  >Агентство недвижимости "Absolute Realty"</option>
+						<option value="960"  >Агентство недвижимости "Moscow Home realty"</option>
+						<option value="961"  >Агентство элитной недвижимости "Альянс Риэлти"</option>
+						<option value="962"  >Компания "Chesterton"</option>
+						<option value="963"  >Агентство элитной недвижимости "IntermarkSavills"</option>
+						<option value="964"  >Агентство недвижимости "SOHO Estate"</option>
+						<option value="965"  >Корпорация "Инком-недвижимость"</option>
+						<option value="966"  >Агентство недвижимости "Новое качество"</option>
+						<option value="967"  >Агентство недвижимости "Blackwood"</option>
+						<option value="968"  >ООО «ТЕРРА-ТРАСТ»</option>
+						<option value="969"  >Опин</option>
+						<option value="970"  >ViaLand</option>
+						<option value="971"  >Метра Групп</option>
+						<option value="972"  >Велес Девелопмент</option>
+						<option value="973"  >Рубин Эстейт</option>
+						<option value="1015"  >ООО «Ст. Реал»  </option>
+						<option value="1016"  >Эко-поселок "Юрьевские пруды"</option>
+						<option value="975"  >Павловы Озера</option>
+						<option value="976"  >Чистые пруды-2</option>
+						<option value="1009"  >Раздолье</option>
+						<option value="978"  >VILLAGIO</option>
+						<option value="979"  >Крона (Krona Village)</option>
+						<option value="1013"  >ООО "Орион"</option>
+						<option value="1014"  >Астэро</option>
+						<option value="981"  >По-Рижская Мечта</option>
+						<option value="982"  >Соловьи</option>
+						<option value="983"  >Княжье Озеро</option>
+						<option value="984"  >Мелоди</option>
+						<option value="985"  >Покровское-Рубцово</option>
+						<option value="986"  >РДН</option>
+						<option value="987"  >Истрия</option>
+						<option value="988"  >Глебово</option>
+						<option value="989"  >Лесная Рапсодия</option>
+						<option value="990"  >"MOZAIK Developmen"</option>
+						<option value="991"  >Европейский поселок «Ла-Манш»</option>
+						<option value="992"  >ЗемАктив</option>
+						<option value="993"  >Новорижские ключи</option>
+						<option value="994"  >Большая Вода</option>
+						<option value="995"  >Подмосковный эдем</option>
+						<option value="996"  >Лесное озеро 2 и 3</option>
+						<option value="1010"  >Риэлторская компания Русский дом недвижимости  </option>
+						<option value="998"  >Инком-недвижимость</option>
+						<option value="999"  >Новорижский Эдем</option>
+						<option value="1000"  >Коттеджный поселок "Лесная Богемия"</option>
+						<option value="1017"  >Коттеджный поселок «Иволги»</option>
+						<option value="1002"  >Земля-регион 50</option>
+						<option value="1003"  >РОССТАЙЛ Девелопмент</option>
+						<option value="1005"  >ПСТ (Первый строительный трест)  </option>
+						<option value="1006"  >КП "Сальвадор"  </option>
+						<option value="1012"  >Метра Эстейт</option>
+						<option value="1008"  >Собственник</option>
+						<option value="1011"  >VillaNova (Вилла Нова)</option>
+						<option value="1018"  >Звенигородский лес </option>
+						<option value="1019"  >Коттеджный поселок "Скипер"</option>
+						<option value="1020"  >Коттеджный поселок "Истринский родник"</option>
+						<option value="1021"  >Коттеджный поселок "VillaNova" (Вилла Нова)</option>
+						<option value="1022"  >Коттеджный поселок "Вельга Парк"</option>
+						<option value="1023"  >Агентство недвижимости NikaEstate</option>
+			        </select>
+    </div>
+    
+</div>
+
+
+
+<div class="string">
+	<div class="input_name" >URL продавца:</div>
+	<div class="line_div">
+		<input name="edit[saler_url]" value="" class="input" type="text" style="width:194px;" />
+	</div>
+</div>
+<div class="string">
+	<div class="input_name" >Описание URL:</div>
+	<div class="line_div">
+		<input name="edit[url_description]" value="" class="input" type="text" style="width:194px;" />
+	</div>
+</div>
+
+<div class="string">
+	<div class="input_name" >Тел. продавца:</div>
+	<div class="line_div">
+		<input name="edit[saler_phone]" value="" class="input" type="text" style="width:194px;" />
+	</div>
+</div>
+
+    		</div>
+    	</div>
+			<div class="edit_right_block" >
+		    <div class="block_header">
+		        <div style="float:right;" >
+		        	<img src="/themes/admin/images/arr2_up.gif" onclick="toggleEditBlock(this);" style="cursor:pointer;" />
+		        </div>
+		        Характеристики КП, НП
+		    </div>
+
+			<div class="block_body">
+				
+
+<div class="string">
+	<div class="input_name" >коттеджи:</div>
+	<div class="line_div">
+            <input name=edit[cotages_trim]" value="0" type="hidden"  />
+            <input name="edit[cotages_trim]" value="1" type="checkbox"  />с отделкой
+            
+            <input name=edit[cotages_no_trim]" value="0" type="hidden"  />
+            <input name="edit[cotages_no_trim]" value="1" type="checkbox"  />без отделки
+
+	</div>
+</div>
+
+<div class="string">
+	<div class="input_name" >таунхаусы:</div>
+	<div class="line_div">
+            <input name=edit[townhowses_trim]" value="0" type="hidden"  />
+            <input name="edit[townhowses_trim]" value="1" type="checkbox"  />с отделкой
+            
+            <input name=edit[townhowses_no_trim]" value="0" type="hidden"  />
+            <input name="edit[townhowses_no_trim]" value="1" type="checkbox"  />без отделки
+
+	</div>
+</div>
+
+<div class="string">
+	<div class="input_name" >квартиры:</div>
+	<div class="line_div">
+            <input name=edit[appartments_trim]" value="0" type="hidden"  />
+            <input name="edit[appartments_trim]" value="1" type="checkbox"  />с отделкой
+            
+            <input name=edit[appartments_no_trim]" value="0" type="hidden"  />
+            <input name="edit[appartments_no_trim]" value="1" type="checkbox"  />без отделки
+
+	</div>
+</div>
+
+<div class="string">
+	<div class="input_name" >участки:</div>
+	<div class="line_div">
+            <input name=edit[sites_trim]" value="0" type="hidden"  />
+            <input name="edit[sites_trim]" value="1" type="checkbox"  />с подрядом
+            
+            <input name=edit[sites_no_trim]" value="0" type="hidden"  />
+            <input name="edit[sites_no_trim]" value="1" type="checkbox"  />без подряда
+
+	</div>
+</div>
+
+
+    		</div>
+    	</div>
+			<div class="edit_right_block" >
+		    <div class="block_header">
+		        <div style="float:right;" >
+		        	<img src="/themes/admin/images/arr2_up.gif" onclick="toggleEditBlock(this);" style="cursor:pointer;" />
+		        </div>
+		        Записи и комментарии блога
+		    </div>
+
+			<div class="block_body">
+				<div class="string">
+    
+    <div class="line_div">
+       
+       <a  target="_blank" href="/admin123/news/?filter[is_village_parent]=1&filter[kpnp]=1187">Записи данного КП(НП)</a>
+    </div>
+</div>
+<div class="string">
+    
+    <div class="line_div">
+       <a target="_blank" href="/admin123/news/comments/?filter[is_village_parent]=1&filter[kpnp]=1187">Комментарии данного КП(НП)</a>
+       
+    </div>
+</div>
+
+    		</div>
+    	</div>
+	
+</td>
+<!-- /Правая колонка -->		
+
+		</tr></table>
+
+	    <div class="string" style="margin: 10px auto; width:600px ">
+	        <div class="input_name" style="width:190px; float:left" >&nbsp; </div>
+	        <div class="line_div" >
+	            <a href="javascript:void(0);" onclick="form_edit_validate();" class="font15"><img src="/themes/admin/images/save.gif" style="margin:0 3px -9px 0" alt="" />Сохранить</a>
+	            <a href="javascript:void(0);" onclick="form_edit_validate(1);" class="font15" style="margin-left:30px;" ><img src="/themes/admin/images/save.gif" style="margin:0 3px -9px 0" alt="" />Сохранить и выйти</a>
+	        </div>
+	    </div>
+	</form>
+	<br /><br />
+
+	<script type="text/javascript">
+	var validate_path = '/admin123/places/validate/';
+	var back_path = '/admin123/places/';
+	var reload_flag = '';
+	var clean_mode = '';
+	var close_popup_func = '';
+
+	
+	function form_edit_validate(exit)
+	{
+		var selector = '#form_edit';
+		var form = $(selector);
+
+		if(!validate_path){
+			form[0].submit();
+			return;
+		}
+
+		$.dqMessage('Проверка валидности данных...',
+					{type:'default', 'life':2000});
+		JsHttpRequest.query(validate_path, {'form' : form[0]},
+			function(result, errors){
+				//alert(errors);
+
+				if (!result){
+					$.dqMessage('Произошла ошибка подгрузки данных',
+								{type:'error', 'life':10000});
+					if(errors) $.dqMessage(errors, {type : 'error', 'life':30000});
+					return;
+				} else if (result.res == 1){
+					$.dqMessage('Данные сохранены',
+								{type:'default', 'life' : 2000});
+					if (result.id){
+						$('input[name=id]').val(result.id);
+                        $('.form_edit_div_show').show();
+                        $('.form_edit_div_hide').hide();
+					}
+
+					if (exit && exit == 1){
+						if (!clean_mode && back_path){
+							window.location = back_path;
+						} else {
+							setTimeout('top.'+close_popup_func+'()', 0);
+						}
+						return;
+					}
+
+					if (reload_flag){
+						window.location = window.location;
+					}
+
+					if (result.reload_path){
+						window.location = result.reload_path;
+					}
+
+					return;
+				} else {
+					$.dqMessage(result.errors, {type : 'error', 'life':10000});
+				}
+			}, true
+		);
+	}
+	
+	function showBanTxt() {
+	    if ($('#ban_chek').attr('checked')) {
+	        $('#ban_txt').show();
+	    } else {
+	        $('#ban_txt').hide();
+	    }
+	}
+	
+	function toggleEditBlock(obj)
+	{
+	        if (obj.src.toString().indexOf('_up.gif') > -1){
+	                obj.src = '/themes/admin/images/arr2_down.gif';
+	                $(obj).parent().parent().next().slideUp('fast');
+	        } else {
+	                obj.src = '/themes/admin/images/arr2_up.gif';
+	                $(obj).parent().parent().next().slideDown('fast');
+	        }
+	}
+
+	function tabs_show(id)
+	{
+	    $('.tabs_hide').hide();
+	    $('.tab_art .select').removeClass('select');
+	    $('#tabs_'+id).show();
+	    $('#ul_'+id).addClass('select');
+        if (typeof(sort_func ) == 'function'){
+            sort_func();
+        }
+	}
+
+	function check_selected_tab_in_url(){
+		var url_arr = window.location.toString().split('#');
+		if (url_arr[1] === undefined || $('#ul_'+url_arr[1]).size() == 0) return;
+
+		tabs_show(url_arr[1]);
+	}
+	$('document').ready(check_selected_tab_in_url);
+	</script>
+	
+			</div>
+		</div>
+	</div>
+	<div class="clear" style="height: 120px" ><!-- --></div>
+</div>
+
+<div class="footer">
+    <div class="foot">
+        <div class="foot_left">
+            <div class="foot_right">
+                <a href="http://avantajprim.com" target="__blank" style="position:relative; top:8px; right:8px; float:right" ><img src="/themes/admin/images/avantajlogo.gif" alt="AvantajPrim"/></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

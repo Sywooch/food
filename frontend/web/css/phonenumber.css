@@ -1,0 +1,35 @@
+#js_phonenumber_button_add {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  background: url('../images/plus.png') no-repeat;
+  text-indent: -9999px;
+}
+.js_phonenumber_delete {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  background: url('../images/cross_orange.png') no-repeat;
+  text-indent: -9999px;
+  cursor: pointer;
+}
+
+.js_address_button_del {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  background: url('../images/cross_orange.png') no-repeat;
+  text-indent: -9999px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+#js_address_button_add {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  background: url('../images/plus.png') no-repeat;
+  text-indent: -9999px;
+  margin-left: 20px;
+  cursor: pointer;
+}

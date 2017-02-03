@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <script type="text/javascript">
+        ymaps.ready(init);
+        var myMap, 
+            myPlacemark;
+
+        function init(){ 
+            myMap = new ymaps.Map("map_canvas", {
+                center: [55.76, 37.64],
+                zoom: 7
+            }); 
+            
+            myPlacemark = new ymaps.Placemark([55.76, 37.64], {
+                hintContent: 'Москва!',
+                balloonContent: '<h4>Москва!</h4><br>Столица России',
+            });
+            
+            myMap.geoObjects.add(myPlacemark);
+        }
+    </script>
+</head>
+<body>
+	<div id="map_canvas" style="width: 600px; height: 400px"></div>
+</body>
+</html>

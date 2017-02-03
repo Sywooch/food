@@ -1,0 +1,20 @@
+Options +FollowSymLinks
+IndexIgnore */*
+
+RewriteEngine on
+
+RewriteBase /
+
+# RewriteCond %{HTTP_HOST} !^www\. [NC]
+# RewriteCond %{HTTP_HOST} !^$
+# RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+
+# добавляет слешь в конце запроса, убивает дебаг, так как в нем запросы без слеша
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_URI} !.*/$
+# RewriteRule ^(.*)$ $1/ [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule . index.php
